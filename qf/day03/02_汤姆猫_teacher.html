@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>汤姆猫</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: black;
+			}
+			.catbox{
+				width: 400px;
+				height: 600px;
+				margin: 100px auto;
+				position: relative;
+			}
+			.catbox img{
+				position: absolute;
+			}
+			.catbox #tomcat{
+				width: 400px;
+				height: 600px;
+			}
+			.catbox img:nth-child(2){
+				top: 40%;
+				left: 5%;
+			}
+			.catbox img:nth-child(3){
+				top: 40%;
+				right: 5%;
+			}
+			.catbox img:nth-child(4){
+				top: 60%;
+				left: 5%;
+			}
+			.catbox img:nth-child(5){
+				top: 60%;
+				right: 5%;
+			}
+			.catbox img:nth-child(6){
+				top: 80%;
+				left: 5%;
+			}
+			.catbox img:nth-child(7){
+				top: 80%;
+				right: 5%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="catbox">
+			<img id="tomcat" src="img/Animations/angry/angry_00.jpg" >
+			<img id="cymbal" src="img/Buttons/cymbal/cymbal.png" >
+			<img id="drink" src="img/Buttons/drink/drink.png" >
+			<img id="eat" src="img/Buttons/eat/eat.png" >
+			<img id="fart" src="img/Buttons/fart/fart.png" >
+			<img id="pie" src="img/Buttons/pie/pie.png" >
+			<img id="scratch" src="img/Buttons/scratch/scratch.png" >
+		</div>
+		<audio src="img/mp3/pi.wav" >
+			当前浏览器不支持audio
+		</audio>
+		<script type="text/javascript">
+			var tom=document.getElementById("tomcat")
+			// 按钮
+			var cymbal=document.getElementById("cymbal")
+			var drink=document.getElementById("drink")
+			var eat=document.getElementById("eat")
+			var fart=document.getElementById("fart")
+			var pie=document.getElementById("pie")
+			var scratch=document.getElementById("scratch")
+			var music=document.querySelector("audio")
+			var timer=null
+			// 轮播动画
+			// 定义方法匹配从0~9
+			function setIndex (index) {
+				if (index<10) {
+					return "0"+index
+				} 
+				return index
+			}
+			// src的拼接
+			function setSrc (name,index) {
+				return "img/Animations/"+name+"/"+name+"_"+setIndex(index)+".jpg"
+			}
+			// 定义动画
+			function animation (name,sum) {
+				clearInterval(timer)
+				var index=0
+				timer=setInterval(function  () {
+					if (index>=sum) {
+						clearInterval(timer)
+					}
+					tom.src=setSrc(name,index)
+					index++
+					
+				},80)
+			}
+			// 音效方法
+			function setmusic (src) {
+				music.src=src
+				music.play()
+			}
+			cymbal.onclick=function  () {
+				animation("cymbal",13)
+				setmusic("img/mp3/pia.mp3")
+			}
+			drink.onclick=function  () {
+				animation("drink",81)
+			}
+			eat.onclick=function  () {
+				animation("eat",40)
+			}
+			fart.onclick=function  () {
+				animation("fart",28)
+			}
+			pie.onclick=function  () {
+				animation("pie",24)
+			}
+			scratch.onclick=function  () {
+				animation("scratch",56)
+			}
+		</script>
+	</body>
+</html>

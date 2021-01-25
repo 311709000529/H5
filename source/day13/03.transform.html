@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clock-wrapper{
+            width: 300px;
+            height: 300px;
+            /*background-color: red;*/
+            margin: 50px auto;
+            border-radius: 50%;
+            border: 5px solid black;
+            position: relative;
+            /*background: url("img/bg.jpg") no-repeat center center/103%;*/
+            background: url("img/1024px-Analogue_clock_face.svg.png") no-repeat center center/103%;
+        }
+
+        .clock-wrapper>div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .sec-wrapper{
+            width: 280px;
+            height: 280px;
+            /*background-color: red;*/
+            border-radius: 50%;
+            animation: rae 60s steps(60) infinite;
+        }
+        .sec{
+            height: 50%;
+            width: 2px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        .min-wrapper{
+            width: 250px;
+            height: 250px;
+            /*background-color: orange;*/
+            border-radius: 50%;
+            animation: rae 3600s linear infinite;
+        }
+        .min{
+            height: 50%;
+            width: 4px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        .hour-wrapper{
+            width: 230px;
+            height: 230px;
+            /*background-color: blue;*/
+            border-radius: 50%;
+            animation: rae 86400s linear infinite;
+        }
+        .hour{
+            height: 50%;
+            width: 6px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        @keyframes rae {
+            0%{
+                transform: rotateZ(0deg);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-wrapper">
+
+        <div class="sec-wrapper">
+            <div class="sec"></div>
+        </div>
+
+        <div class="min-wrapper">
+            <div class="min"></div>
+        </div>
+
+        <div class="hour-wrapper">
+            <div class="hour"></div>
+        </div>
+
+    </div>
+</body>
+</html>

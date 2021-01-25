@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="点击添加事件监听">
+    <input type="button" value="点击删除事件监听">
+    <script>
+        var btns = document.querySelectorAll('input') ;
+        
+        // btns[0].onclick = function () {
+        //     console.log('你好呀！！！') ;
+        // }
+        // btns[1].onclick = function() {
+        //     btns[0].onclick = null;
+        // }
+        function fn1() {
+            console.log("what are you doing now?") ;
+        }
+        function fn2() {
+            console.log("I'm going to school!") ;
+        }
+        function fn3() {
+            btns[0].removeEventListener('click' ,fn1,false)  ;
+            btns[0].removeEventListener('click' ,fn2,false) ;
+        }
+        btns[0].addEventListener('click' ,fn1,false)  ;
+        btns[0].addEventListener('click' ,fn2,false) ;
+        btns[1].addEventListener('click' ,fn3 ,false ) ;
+    </script>
+</body>
+</html>

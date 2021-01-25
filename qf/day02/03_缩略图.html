@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            height: 300px;
+            width: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #wrap .imgWrap {
+            height: 300px;
+            width: 500px;
+        }
+        #wrap .imgWrap img{
+            height: 300px;
+            width: 500px;
+        }
+        #wrap .smallImg{
+            text-align: center;
+            vertical-align: center;
+            height: 50px;
+            width: 400px;
+            margin: auto;
+            position: absolute;
+            top: 100%;
+            transform: translateY(-100%) translateX(-50%);
+            left: 50%;
+
+            /*vertical-align: bottom;*/
+        }
+        #wrap .smallImg img{
+            height: 40px;
+            width: 60px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="imgWrap">
+            <img src="1419584-20191024094909345-402091406.png" alt="">
+        </div>
+        <div class="smallImg">
+            <img src="1419584-20191024094909345-402091406.png" alt="">
+            <img src="1419584-20191024095416002-1358025665.jpg" alt="">
+            <img src="img_0056.jpg" alt="">
+            <img src="wallhaven-5d8k75.png" alt="">
+            <img src="wallhaven-dgwdqg.jpg" alt="">
+            <img src="wallhaven-oxzkll.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        let smallImg = document.querySelectorAll('.smallImg img') ;
+        let imgWrap = document.querySelector('.imgWrap img') ;
+        for (let i = 0 ; i < smallImg.length ; i ++ ) {
+            smallImg[i].onclick = function () {
+                imgWrap.src = this.src;
+            }
+        }
+    </script>
+</body>
+</html>

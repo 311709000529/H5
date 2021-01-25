@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url("images/bg.gif");
+        }
+        .imgShow{
+            height: 100%;
+            width: 100%;
+            position: fixed;
+        }
+        .imgShow>img{
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            position: absolute;
+            transition: 1.2s;
+        }
+        .imgShow .list{
+            height: 100px;
+            /*width: 700px;*/
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            float: left;
+            transform: translateY(-150%) translateX(-50%);
+        }
+        .imgShow .list a {
+            display: block;
+            height: 100px;
+            width: 100px;
+            float: left;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px;
+            box-shadow: 0 0 10px white;
+        }
+        .imgShow .list a img{
+            height: 100px;
+            width: 100px;
+        }
+        #pic1{
+            left: -100%;
+        }
+        #pic1:target{
+            opacity: 1;
+            left: 0;
+        }
+        /* 上下 */
+        #pic2{
+            top: -100%;
+            left: -100%;
+        }
+        #pic2:target{
+            opacity: 1;
+            left: 0;
+            top: 0;
+        }
+
+        /* 旋转+缩放 */
+        #pic3{
+            transform: scale(0);
+        }
+        #pic3:target{
+            opacity: 1;
+            transform: scale(1) rotate(360deg);
+        }
+
+        /* 位移+倾斜 */
+        #pic4{
+            right: -100%;
+            transform: skewX(60deg);
+        }
+        #pic4:target{
+            right: 0;
+            opacity: 1;
+            transform: skewX(0deg);
+
+        }
+        /* 缩放 */
+        #pic5{
+
+            transform: scale(2);
+        }
+        #pic5:target{
+
+            opacity: 1;
+            transform: scale(1);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="imgShow">
+        <img id="pic1" src="images/1.jpg" alt="">
+        <img id="pic2" src="images/2.jpg" alt="">
+        <img id="pic3" src="images/3.jpg" alt="">
+        <img id="pic4" src="images/4.jpg" alt="">
+        <img id="pic5" src="images/5.jpg" alt="">
+        <div class="list">
+            <a href="#pic1"><img src="images/1-1.jpg" alt=""></a>
+            <a href="#pic2"><img src="images/2-1.jpg" alt=""></a>
+            <a href="#pic3"><img src="images/3-1.jpg" alt=""></a>
+            <a href="#pic4"><img src="images/4-1.jpg" alt=""></a>
+            <a href="#pic5"><img src="images/5-1.jpg" alt=""></a>
+        </div>
+    </div>
+</body>
+</html>

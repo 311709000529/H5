@@ -1,0 +1,18 @@
+#nav{
+    background-color: #333;
+}
+#nav .nav-wrap{
+    height: 58px;
+}
+#nav .nav-wrap li{
+    float: left;
+}
+#nav .nav-list  li a{
+    display: block;
+    font-size: 12px;
+    width: 119px;
+    color: white;
+    line-height: 58px;
+    text-align: center;
+
+}

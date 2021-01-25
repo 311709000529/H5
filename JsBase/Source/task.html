@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            height: 300px;
+            width: 300px;
+            background-color: #FF00FF;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <input type="button" value="点击切换">
+    <script>
+        var divNode = document.querySelector('div') ;
+        var btn = document.querySelector('input') ;
+        var flag = true ;
+        btn.onclick = function () {
+            if ( flag ) {
+                divNode.style.display = 'none' ;
+            } else {
+                divNode.style.display = 'block' ;
+            }
+            flag = !flag ;
+        }
+    </script>
+</body>
+</html>

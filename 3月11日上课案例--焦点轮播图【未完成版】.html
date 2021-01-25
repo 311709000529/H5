@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Carousel-images</title>
+	<style>
+		*{padding: 0px;margin: 0px;list-style: none;}
+		#wrap{margin:30px auto; 
+			  width:490px;
+			  height:170px;
+			  overflow: hidden;
+			  position: relative;
+
+		}
+		#list{position: absolute;bottom:10px;right:10px;}
+		#list li{float:left;
+				 background: #f90;
+				 color:#fff;
+				 font-weight: bold;
+				 width:20px;
+				 height:20px;
+				 line-height: 20px;
+				 margin-right:1px;
+				 text-align: center;
+				 border-radius: 50%;
+				 cursor:pointer;
+		}
+		#list .on{background: blue;color:red;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="pic">
+			<li><img src="images/01.jpg" alt=""></li>
+			<li><img src="images/02.jpg" alt=""></li>
+			<li><img src="images/03.jpg" alt=""></li>
+			<li><img src="images/04.jpg" alt=""></li>
+			<li><img src="images/05.jpg" alt=""></li>
+		</ul>
+		<ol id="list" type="a">
+			<li class="on">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ol>
+	</div>
+
+	<script>
+		var pic=document.getElementById('pic');
+		var list=document.getElementById("list").getElementsByTagName('li');
+		var index=0;
+		var time=null;
+
+		function auto(){
+			time=setInterval(function(){
+				index++;
+				if(index>=list.length){
+					index=0;
+				}
+				change(index)
+			},2000)
+		}
+		
+		function change(currentIndex){
+			pic.style.marginTop=-170px*currentIndex+"px"
+
+
+		}
+
+	</script>
+
+</body>
+</html>

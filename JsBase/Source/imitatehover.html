@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            height: 300px;
+            width: 150px;
+            margin: 100px auto;
+        }
+        ul{
+            border: 1px solid red;
+        }
+        ul>li{
+            list-style: none;
+            height: 50px;
+            width: 100%;
+            border-bottom: 1px solid skyblue;
+            /*box-sizing: border-box;*/
+            text-align: center;
+            line-height: 50px;
+        }
+        ul>li:last-child{
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <ul>
+            <li><a href="javascript:;">导航条1</a></li>
+            <li><a href="javascript:;">导航条2</a></li>
+            <li><a href="javascript:;">导航条3</a></li>
+            <li><a href="javascript:;">导航条4</a></li>
+            <li><a href="javascript:;">导航条5</a></li>
+            <li><a href="javascript:;">导航条6</a></li>
+        </ul>
+    </div>
+    <script>
+        var liNodes = document.querySelectorAll('ul>li');
+        for ( var i = 0 ; i < liNodes.length ; i ++ ) {
+            liNodes[i].onmouseover = function() {
+                this.style.backgroundColor = 'skyblue';
+            }
+            liNodes[i].onmouseout = function() {
+                this.style.backgroundColor = 'transparent';
+            }
+        }
+    </script>
+</body>
+</html>

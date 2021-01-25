@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+        }
+        #cover {
+            position: absolute;
+            display: none;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            background-color: #12ff56;
+            opacity: .5;
+            text-align: center;
+            font-size: 40px;
+        }
+        #wrap{
+            height: 300px;
+            width: 500px;
+            background-color: pink;
+            border-radius: 23px;
+            margin: 100px auto;
+            box-shadow: 0 0 20px white;
+        }
+        #wrap .sorce{
+            height: 60px;
+        }
+        #wrap .sorce .left {
+            float: left;
+            margin: 10px 0 0 10px;
+            font-size: 20px;
+            color: white;
+        }
+        #wrap .sorce .right {
+            float: right;
+            margin: 10px 10px 0 0;
+            font-size: 20px;
+            color: white;
+
+        }
+        #wrap .text {
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            margin: 25px 0;
+        }
+        #wrap .text span{
+            margin: auto;
+            display: block;
+            height: 100%;
+            text-align: center;
+            font-size: 40px;
+            color: white;
+            line-height: 100px;
+
+        }
+        #wrap .btn {
+            height: 90px;
+            position: relative;
+        }
+        #wrap .btn .true {
+            height: 60px;
+            width: 60px;
+            position: absolute;
+            right: 50%;
+            transform: translateX(-10px);
+            background-color: blue;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            box-shadow: 0 0 20px white;
+            border: 5px solid white;
+            cursor: pointer;
+            display: none;
+        }
+        #wrap .btn .false {
+            height: 60px;
+            width: 60px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(10px);
+            background-color: red;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            box-shadow: 0 0 20px white;
+            border: 5px solid white;
+            cursor: pointer;
+            display: none;
+
+        }
+        #wrap .btn .start{
+            height: 70px;
+            width: 100px;
+            position: absolute;
+            background-color: red;
+            border: 5px solid white;
+            border-radius: 23px;
+            text-align: center;
+            line-height: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="cover">点击回车之后重新开始游戏</div>
+    <div id="wrap">
+        <div class="sorce">
+            <div class="left">
+                第<span id="num">0</span>题
+            </div>
+            <div class="right">
+                得分: <span id="get">0</span>
+            </div>
+        </div>
+        <div class="text">
+               <span id="in">你画我猜大挑战</span>
+        </div>
+        <div class="btn">
+            <div class="true">
+                <span>True</span>
+            </div>
+            <div class="false">
+                <span>False</span>
+            </div>
+            <div class="start">
+                <span>start</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let getTitle =  document.querySelector('#wrap .sorce #num') ;
+        let getStrat = document.querySelector('#wrap .btn .start') ;
+        let getTrue = document.querySelector('#wrap .btn .true') ;
+        let getFalse = document.querySelector('#wrap .btn .false') ;
+        let sorce = document.querySelector('#wrap .sorce #get') ;
+        let getIn = document.querySelector('#wrap .text #in') ;
+        let cover = document.querySelector('#cover') ;
+        let getSorce = 0 ;
+        let title = 0;
+        let dataList = [
+            "瞻前顾后",
+            "永垂不朽",
+            "未雨绸缪",
+            "万人空巷",
+            "杞人忧天",
+            "守株待兔",
+            "噤若寒蝉",
+            "化险为夷",
+            "兢兢业业",
+            "一言九鼎",
+            "错落有致",
+            "洗心革面",
+            "沧海一粟",
+            "侃侃而谈",
+            "不耻下问",
+            "上行下效",
+            "语重心长",
+            "慢条斯理",
+            "心急如焚",
+            "兴高采烈",
+            "高山流水",
+            "耿耿于怀",
+            "没精打采",
+            "林林总总",
+            "明日黄花",
+            "凤毛麟角",
+            "鹏程万里",
+            "高朋满座",
+            "豁然开朗",
+            "绘声绘色"] ;
+        // console.log(dataList.length) ;
+        getStrat.onclick = function () {
+            getTitle.innerHTML = ++title ;
+            getTrue.style.display = 'block' ;
+            getFalse.style.display = 'block' ;
+            getStrat.style.display = 'none' ;
+            getIn.innerHTML = dataList[Math.floor(Math.random() * 30 )] ;
+        }
+        getTrue.onclick = function () {
+            sorce.innerHTML = ++getSorce ;
+            addTitle() ;
+            getIn.innerHTML = dataList[Math.floor(Math.random() * 30 )] ;
+        }
+        getFalse.onclick = function () {
+            addTitle();
+            getIn.innerHTML = dataList[Math.floor(Math.random() * 30 )];
+            document.body.style.backgroundColor = 'green' ;
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'black' ;
+            },100)
+        }
+        function addTitle() {
+
+            if ( title + 1 == 11 ) {
+                cover.style.display = 'block' ;
+                document.onkeydown = function (event) {
+                    if ( event.keyCode == 13 ) {
+                        // console.log('==================================')
+                        cover.style.display = 'none' ;
+                        title = 1;
+                        getSorce = 0 ;
+                        getTitle.innerHTML = title ;
+                        sorce.innerHTML = getSorce ;
+                    }
+                }
+            } else {
+                getTitle.innerHTML = ++title ;
+            }
+        }
+    </script>
+</body>
+</html>

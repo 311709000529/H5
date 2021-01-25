@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06_each练习</title>
+</head>
+<body>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script>
+        let obj = {
+            'name':'kobe',
+            'age':43
+        }
+        let arr = [1,2,3,4,5,6,7,8,9]
+        $.each(obj ,function (key ,v){
+            console.log(key ,v) ;
+        })
+        $.each(arr ,function (index ,v){
+            console.log(index ,v) ;
+        })
+        console.log('--------------------------------------------')
+        var json = '{"username":"jack", "age" : 12}';
+        console.log($.parseJSON(json))
+        var jsonArr = '[{"username":"jack", "age" : 12},{"username":"Tom", "age" : 13}]'
+        console.log($.parseJSON(jsonArr));
+    </script>
+</body>
+</html>

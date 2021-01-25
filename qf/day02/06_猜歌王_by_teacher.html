@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: black;
+			}
+			.box{
+				width: 700px;
+				height: 500px;
+				background: skyblue;
+				margin: 100px auto;
+				border: 5px solid white;
+				box-shadow: 0px 0px 10px white;
+				border-radius: 20px;
+			}
+			.box .top{
+				height: 80px;
+				padding: 0 40px;
+				
+			}
+			.box .top h2{
+				color: white;
+				line-height: 80px;
+				height: 80px;
+			}
+			.top .index{
+				float: left;
+			}
+			.top .score{
+				float: right;
+			}
+			.content{
+				text-align: center;
+				line-height: 200px;
+				height: 200px;
+				background: #333;
+				font-size: 50px;
+				color: red;
+				font-weight: bold;
+				text-shadow:0 0 4px #FFF, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -25px 18px #f20;
+			}
+			.btnBox{
+				width: 200px;
+				height: 100px;
+				/* background: yellow; */
+				margin: 0 auto;
+				margin-top: 50px;
+				position: relative;
+			}
+			.btn_wrap{
+				width: 200px;
+				height: 100px;
+				position: absolute;
+			}
+			.btn_wrap div{
+				text-align: center;
+				width: 50px;
+				height: 50px;
+				border: 5px solid white;
+				border-radius: 50%;
+				line-height: 50px;
+				color: white;
+				box-shadow: 0px 0px 5px black;
+				margin-top: 20px;
+				/* 光标变小手 */
+				cursor: pointer;
+				
+			}
+			.btn_wrap .true{
+				float: left;
+				background: blue;
+				margin-left: 20px;
+			}
+			.btn_wrap .false{
+				float: right;
+				background: red;
+				margin-right: 20px;
+			}
+			.start{
+				width: 200px;
+				height: 100px;
+				background: red;
+				text-align: center;
+				line-height: 100px;
+				border-radius: 20px;
+				font-size: 40px;
+				color: white;
+				position: absolute;
+				box-shadow: 5px 5px 10px #555;
+				cursor: pointer;
+			}
+			.start:hover{
+				box-shadow: 0px 0px 0px #555;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="top">
+				<h2 class="index">第0题</h2>
+				<h2 class="score">得分:0</h2>
+			</div>
+			<div class="content">
+				猜歌王
+			</div>
+			<div class="btnBox">
+				<div class="btn_wrap">
+					<div class="true">
+						true
+					</div>
+					<div class="false">
+						false
+					</div>
+				</div>
+				<div class="start">
+					开始
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: #f4f4f4;
+            font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+            color: #666;
+        }
+        .top {
+            width: 490px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .box_tit {
+            float: left;
+            font-weight: 700;
+            font-size: 24px;
+            color: #333;
+            line-height: 32px;
+            flex: 1;
+            /* margin: 10px; */
+        }
+
+        .box_hd {
+            float: left;
+        }
+
+        /* 箭头 */
+        .box_hd_arrow {
+            background-image: url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/tit_arrow/sprite.png);
+            background-position: -16px 0;
+            width: 16px;
+            height: 16px;
+            position: relative;
+            float: left;
+            top: 9px;
+            left: 10px;
+        }
+        .tab_body_item {
+            position: absolute;
+            height: 100px;
+            width: 150px;
+            margin-top: 10px;
+            margin-left: 170px;
+        }
+        .special_item_0 {
+            background-color: rgba(109, 126, 146, .05);
+        }
+        img {
+            width: 74px;
+            height: 74px;
+            margin: 5px;
+        }
+
+        /* tab样式 */
+        .special_tab_lk {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: Microsoft Yahei, PingFangSC-Medium, sans-serif, serif;
+            color: #999;
+            line-height: 19px;
+            padding-bottom: 2px;
+        }
+        .selected {
+            color: #c81623;
+            border-bottom: 2px solid red;
+        }
+        ul {
+            list-style: none;
+            width: 200px;
+            display: flex;
+            justify-content: space-around;
+            margin: 0 10px;
+        }
+        ul li {
+            display: block;
+            float: left;
+        }
+
+        .bottom {
+            display: flex;
+        }
+
+        /* left */
+        .bottom_left {
+            flex: 2;
+            width: 25%;
+            text-align: center;
+            margin: 10px 8px 8px 8px;
+            background-color: #f4f4f4;
+            bottom: 5px;
+            padding: 40px 10px 15px;
+            cursor: pointer;
+        }
+        .bottom_left .now_price {
+            font-size: 18px;
+            color: #c81623;
+        }
+        .bottom_left .special_item_name {
+            font-size: 14px;
+        }
+
+        /* right */
+        .bottom_right {
+            flex: 5;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            margin: 20px 10px;
+        }
+        .right_item_column {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .right_item {
+            display: flex;
+        }
+        .right_item .now_price {
+            font-size: 14px;
+            color: #c81623;
+        }
+
+        /* all_goods */
+        .lazyimg_img {
+            width: 100px;
+            height: 100px;
+        }
+        .special_item_name:hover {
+            color: #c81623;
+        }
+        .before_price {
+            text-decoration: line-through;
+        }
+        .content {
+            display: none;
+        }
+        .on {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: 20px 40px;width: 490px;background-color: white;">
+        <div class="top">
+            <div class="box_hd"><a class="box_hd_lk" href="//miaosha.jd.com/specialpricelist.html" target="_blank"
+                    clstag="h|keycount|core|daily_a">
+                    <h3 class="box_tit">每日特价</h3><i class="box_hd_arrow"></i>
+                </a>
+            </div>
+            <ul>
+                <li class="tab_head_item" class="selected"><a class="special_tab_lk">精选</a></li>
+                <li class="tab_head_item"><a class="special_tab_lk">数码</a></li>
+                <li class="tab_head_item"><a class="special_tab_lk">美食</a></li>
+                <li class="tab_head_item"><a class="special_tab_lk">百货</a></li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <div class="content on">
+                <div class="bottom_left">
+                    <img src="http://img11.360buyimg.com/mobilecms/s144x144_jfs/t30898/154/1172788235/538937/a3ed0ef3/5cd8fe31Nee7cb19e.png!q70.jpg.webp"
+                        class="lazyimg_img">
+                    <div class="text">
+                        <div class="special_item_lowestFirst">65天最低价</div>
+                        <div>
+                            <span class="special_item_name">诺基亚105老人机</span>
+                            <div class="special_item_price">
+                                <span class="now_price">￥129</span>
+                                <span class="before_price">￥179</span>
+                            </div>
+                            <span>热卖中</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_right">
+                    <div class="right_item_column">
+                        <div class="right_item">
+                            <img
+                                src="http://img11.360buyimg.com/mobilecms/s144x144_jfs/t30898/154/1172788235/538937/a3ed0ef3/5cd8fe31Nee7cb19e.png!q70.jpg.webp">
+                            <div class="text">
+
+                                <div>
+                                    <span class="special_item_name">诺基亚105老人机</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥129</span>
+                                        <span class="before_price">￥179</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="right_item">
+                            <img
+                                src="http://img11.360buyimg.com/mobilecms/s144x144_jfs/t30898/154/1172788235/538937/a3ed0ef3/5cd8fe31Nee7cb19e.png!q70.jpg.webp">
+                            <div class="text">
+
+                                <div>
+                                    <span class="special_item_name">诺基亚105老人机</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥129</span>
+                                        <span class="before_price">￥179</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="right_item_column">
+                        <span class="right_item">
+                            <img
+                                src="http://img11.360buyimg.com/mobilecms/s144x144_jfs/t30898/154/1172788235/538937/a3ed0ef3/5cd8fe31Nee7cb19e.png!q70.jpg.webp">
+                            <div class="text">
+
+                                <div>
+                                    <span class="special_item_name">诺基亚105老人机</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥129</span>
+                                        <span class="before_price">￥179</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="right_item">
+                            <img
+                                src="http://img11.360buyimg.com/mobilecms/s144x144_jfs/t30898/154/1172788235/538937/a3ed0ef3/5cd8fe31Nee7cb19e.png!q70.jpg.webp">
+                            <div class="text">
+
+                                <div>
+                                    <span class="special_item_name">诺基亚105老人机</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥129</span>
+                                        <span class="before_price">￥179</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="bottom_left">
+                    <img src="http://img13.360buyimg.com/mobilecms/s144x144_jfs/t1/89559/29/14304/201805/5e65f621E8bfcc6cd/baca8c4a980b0b82.jpg!q70.jpg.webp"
+                        class="lazyimg_img">
+                    <div class="text">
+                        <div class="special_item_lowestFirst">125天最低价</div>
+                        <div>
+                            <span class="special_item_name">游戏手柄电脑</span>
+                            <div class="special_item_price">
+                                <span class="now_price">￥36</span>
+                                <span class="before_price">￥69</span>
+                            </div>
+                            <span>热卖中</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_right">
+                    <div class="right_item_column">
+                        <div class="right_item">
+                            <img
+                                src="http://img13.360buyimg.com/mobilecms/s144x144_jfs/t1/89559/29/14304/201805/5e65f621E8bfcc6cd/baca8c4a980b0b82.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">游戏手柄电脑</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥36</span>
+                                        <span class="before_price">￥69</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="right_item">
+                            <img
+                                src="http://img13.360buyimg.com/mobilecms/s144x144_jfs/t1/89559/29/14304/201805/5e65f621E8bfcc6cd/baca8c4a980b0b82.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">游戏手柄电脑</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥36</span>
+                                        <span class="before_price">￥69</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="right_item_column">
+                        <span class="right_item">
+                            <img
+                                src="http://img13.360buyimg.com/mobilecms/s144x144_jfs/t1/89559/29/14304/201805/5e65f621E8bfcc6cd/baca8c4a980b0b82.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">游戏手柄电脑</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥36</span>
+                                        <span class="before_price">￥69</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="right_item">
+                            <img
+                                src="http://img13.360buyimg.com/mobilecms/s144x144_jfs/t1/89559/29/14304/201805/5e65f621E8bfcc6cd/baca8c4a980b0b82.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">游戏手柄电脑</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥36</span>
+                                        <span class="before_price">￥69</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="bottom_left">
+                    <img src="http://img30.360buyimg.com/mobilecms/s144x144_jfs/t1/88583/38/989/106859/5db807e9E3b94e2bc/b26fc6268b55e198.jpg!q70.jpg.webp"
+                        class="lazyimg_img">
+                    <div class="text">
+                        <div class="special_item_lowestFirst">65天最低价</div>
+                        <div>
+                            <span class="special_item_name">yotime 牛轧糖</span>
+                            <div class="special_item_price">
+                                <span class="now_price">￥39</span>
+                                <span class="before_price">￥96</span>
+                            </div>
+                            <span>热卖中</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_right">
+                    <div class="right_item_column">
+                        <div class="right_item">
+                            <img
+                                src="http://img30.360buyimg.com/mobilecms/s144x144_jfs/t1/88583/38/989/106859/5db807e9E3b94e2bc/b26fc6268b55e198.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">yotime 牛轧糖</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥39</span>
+                                        <span class="before_price">￥96</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="right_item">
+                            <img
+                                src="http://img30.360buyimg.com/mobilecms/s144x144_jfs/t1/88583/38/989/106859/5db807e9E3b94e2bc/b26fc6268b55e198.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">yotime 牛轧糖</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥39</span>
+                                        <span class="before_price">￥96</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="right_item_column">
+                        <span class="right_item">
+                            <img
+                                src="http://img30.360buyimg.com/mobilecms/s144x144_jfs/t1/88583/38/989/106859/5db807e9E3b94e2bc/b26fc6268b55e198.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">yotime 牛轧糖</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥39</span>
+                                        <span class="before_price">￥96</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="right_item">
+                            <img
+                                src="http://img30.360buyimg.com/mobilecms/s144x144_jfs/t1/88583/38/989/106859/5db807e9E3b94e2bc/b26fc6268b55e198.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">yotime 牛轧糖</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥39</span>
+                                        <span class="before_price">￥96</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="bottom_left">
+                    <img src="http://img20.360buyimg.com/mobilecms/s144x144_jfs/t1/98672/18/13205/94768/5e549abeEc41ae139/d4116860049f1932.jpg!q70.jpg.webp"
+                        class="lazyimg_img">
+                    <div class="text">
+                        <div class="special_item_lowestFirst">145天最低价</div>
+                        <div>
+                            <span class="special_item_name">家用不锈钢菜刀</span>
+                            <div class="special_item_price">
+                                <span class="now_price">￥15.9</span>
+                                <span class="before_price">￥32</span>
+                            </div>
+                            <span>热卖中</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_right">
+                    <div class="right_item_column">
+                        <div class="right_item">
+                            <img
+                                src="http://img20.360buyimg.com/mobilecms/s144x144_jfs/t1/98672/18/13205/94768/5e549abeEc41ae139/d4116860049f1932.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">家用不锈钢菜刀</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥15.9</span>
+                                        <span class="before_price">￥32</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="right_item">
+                            <img
+                                src="http://img20.360buyimg.com/mobilecms/s144x144_jfs/t1/98672/18/13205/94768/5e549abeEc41ae139/d4116860049f1932.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">家用不锈钢菜刀</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥15.9</span>
+                                        <span class="before_price">￥32</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="right_item_column">
+                        <span class="right_item">
+                            <img
+                                src="http://img20.360buyimg.com/mobilecms/s144x144_jfs/t1/98672/18/13205/94768/5e549abeEc41ae139/d4116860049f1932.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">家用不锈钢菜刀</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥15.9</span>
+                                        <span class="before_price">￥32</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="right_item">
+                            <img
+                                src="http://img20.360buyimg.com/mobilecms/s144x144_jfs/t1/98672/18/13205/94768/5e549abeEc41ae139/d4116860049f1932.jpg!q70.jpg.webp">
+                            <div class="text">
+            
+                                <div>
+                                    <span class="special_item_name">家用不锈钢菜刀</span>
+                                    <div class="special_item_price">
+                                        <span class="now_price">￥15.9</span>
+                                        <span class="before_price">￥32</span>
+                                    </div>
+                                    <span>热卖中</span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var tabs = document.getElementsByClassName("special_tab_lk")
+    var lists = document.getElementsByClassName("content")
+    var index = 0
+
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].onmousemove = function () {
+            change(this)
+        }
+    }
+
+    function change(params) {
+        for (var i = 0; i < tabs.length; i++) {
+            if (tabs[i] == params) {
+                tabs[index].classList.remove("selected")
+                lists[index].classList.remove("on")
+                index = i
+
+                tabs[i].classList.add("selected")
+                lists[i].classList.add("on")
+            }
+        }
+    }
+</script>
+</html>

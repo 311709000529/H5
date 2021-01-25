@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var game = ['只狼' , 'project winter' ,'缺氧','饥荒', 'cf'] ;
+        // var str = '<ul>' ;
+        //
+        // for (var  i = 0 ; i < game.length ; i ++ ) {
+        //     str += '<li>' + game[i] + '</li>' ;
+        // }
+        //
+        // str += '</ul>' ;
+        //
+        // document.body .innerHTML += str ;
+
+        var ulNode = document.createElement('ul') ;
+
+        for (var i = 0 ; i < game.length ; i ++ ) {
+            var liNode = document.createElement('li') ;
+            liNode.innerHTML = game[i] ;
+            if ( i&1 ) {
+                liNode.style.backgroundColor = 'hotpink' ;
+            } else {
+                liNode.style.backgroundColor = 'skyblue' ;
+            }
+            ulNode.appendChild(liNode) ;
+        }
+        document.body.appendChild(ulNode) ;
+    </script>
+</body>
+</html>

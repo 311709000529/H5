@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: url("images/bigBg.jpg") no-repeat;
+            background-size: 100%;
+        }
+        img{
+            height: 160px;
+            width: 270px;
+            position: absolute;
+            left: 20%;
+            top: 10%;
+            animation: action 3s linear infinite;
+            transform-origin: center top;
+        }
+        @keyframes action {
+            0%{
+                transform: rotate(-20deg);
+            }
+            50%{
+                transform: rotate(20deg);
+
+            }
+            100%{
+                transform: rotate(-20deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <img src="images/envelope.png" alt="">
+    <script>
+        document.querySelector('img').onclick = function () {
+            window.location = '06_信封打开.html' ;
+        }
+    </script>
+</body>
+</html>

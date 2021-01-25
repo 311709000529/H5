@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+</head>
+<body>
+    <canvas id = MyCanvas height=600px" width="600px" style="background: yellow">*******</canvas>
+    <script>
+        var cav = document.getElementById("MyCanvas")
+        var cxt = cav.getContext("2d")
+
+
+        cxt.beginPath()
+        for (var i = 0 ; i < 10 ; i ++ ) {
+            cxt.arc(i*25 ,i*25 ,(i+1)*8 ,0 ,2*Math.PI ,false)
+            cxt.fillStyle = "rgba(255 ,0 ,255 ,"+(10-i)*0.2+")"
+            cxt.fill()
+        }
+        cxt.closePath()
+
+        cxt.beginPath()
+        cxt.rect(30 ,400 ,180 ,100 )
+        cxt.stroke()
+        cxt.closePath()
+
+        cxt.beginPath()
+        cxt.strokeStyle = "red"
+        cxt.font = "50px 楷体"
+        cxt.fillText("河南理工大学" ,300 ,300 )
+        cxt.closePath()
+
+        var img =  new Image()
+
+    </script>
+</body>
+</html>

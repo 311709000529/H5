@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            /*width: 100%;*/
+            overflow: hidden;
+        }
+        #box{
+            height: 100px;
+            width: 200px;
+            background-color: red;
+            position: absolute;
+        }
+        img{
+            height: 100px;
+            width: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        王尚位
+    </div>
+    <img src="../img/1%20(1).jpg" alt="">
+    <script>
+        var divNode = document.querySelector('#box') ;
+        divNode.onmousedown = function (event) {
+            event = event || window.event;
+            var eleX = divNode.offsetLeft;
+            var eleY = divNode.offsetTop ;
+
+            var staX = event.clientX;
+            var staY = event.clientY;
+            divNode.setCapture && divNode.setCapture() ;
+            document.onmousemove = function (event) {
+                event = event || window.event;
+                var endX = event.clientX ;
+                var endY = event.clientY;
+
+                var disX = endX - staX + eleX ;
+                var disY = endY - staY + eleY ;
+
+                // console.log(disX) ;
+                // console.log(disY) ;
+                if ( disX <= 50 ) {
+                    disX = 0;
+                } else if( disX >= document.documentElement.clientWidth - divNode.offsetWidth - 50 ) {
+                    disX = document.documentElement.clientWidth - divNode.offsetWidth ;
+                }
+                if ( disY <= 50 ) {
+                    disY = 0;
+                } else if( disY >= document.documentElement.clientHeight - divNode.offsetHeight - 50 ) {
+                    disY = document.documentElement.clientHeight - divNode.offsetHeight ;
+                }
+
+                var divL = disX + divNode.offsetWidth;
+                var divR = disX ;
+                var divT = disY + divNode.offsetHeight ;
+                var divB = disY ;
+                var imgNode = document.querySelector('img') ;
+                var imgL = imgNode.getBoundingClientRect().left ;
+                var imgR = imgNode.getBoundingClientRect().left + imgNode.offsetWidth;
+                var imgT = imgNode.getBoundingClientRect().top ;
+                var imgB = imgNode.getBoundingClientRect().top  + imgNode.offsetHeight;
+
+                if ( divL < imgL || divR > imgR || divT < imgT || divB > imgB ) {
+                    imgNode.src = '../img/1%20(1).jpg';
+                } else {
+                    imgNode.src = '../img/1%20(3).png';
+                }
+
+                divNode.style.left = disX + 'px' ;
+                divNode.style.top = disY + 'px' ;
+            } ;
+            document.onmouseup = function () {
+                divNode.releaseCapture && divNode.releaseCapture() ;
+                document.onmousemove = document.ommouseup = null;
+            } ;
+            event.preventDefault() ;
+            return false;
+        } ;
+    </script>
+</body>
+</html>

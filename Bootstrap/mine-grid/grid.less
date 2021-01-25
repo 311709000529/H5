@@ -1,0 +1,127 @@
+@import "normalize";
+
+*{
+  box-sizing: border-box;
+}
+
+.clearfix(){
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+
+  }
+}
+
+@screen-lg: 1200px;
+@screen-md: 992px;
+@screen-sm: 768px;
+
+@container-lg-width: 1170px;
+@container-md-width: 970px;
+@container-sm-width: 750px;
+
+@grid-gutter-width: 30px;
+
+@grid-columns: 12;
+
+.make-container() {
+  .container{
+    .container-common-style();
+    .clearfix() ;
+    @media (min-width: @screen-sm) {
+      width: @container-sm-width;
+    }
+    @media (min-width: @screen-md) {
+      width: @container-md-width;
+    }
+    @media (min-width: @screen-lg) {
+      width: @container-lg-width;
+    }
+  }
+  .container-fluid{
+    .container-common-style();
+    .clearfix() ;
+    @media (min-width: @screen-sm) {
+      width: @container-sm-width;
+    }
+    @media (min-width: @screen-md) {
+      width: @container-md-width;
+    }
+    @media (min-width: @screen-lg) {
+      width: @container-lg-width;
+    }
+  }
+  .container-common-style() {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: @grid-gutter-width / 2 ;
+    padding-right: @grid-gutter-width / 2 ;
+  }
+}
+.make-container() ;
+
+.make-row() {
+  .row {
+    margin-left: -@grid-gutter-width / 2 ;
+    margin-right: -@grid-gutter-width / 2 ;
+  }
+}
+.make-row() ;
+
+
+.make-grid-columns() {
+  .col(@index) {
+    @selector: ~'.col-lg-@{index},.col-md-@{index},.col-sm-@{index},.col-xs-@{index}';
+    .col(@index + 1 ,@selector) ;
+  }
+  .col(@index ,@list) when (@index <= @grid-columns) {
+    @selector: ~'@{list},.col-lg-@{index},.col-md-@{index},.col-sm-@{index},.col-xs-@{index}';
+    .col(@index+1,@selector) ;
+  }
+  .col(@index ,@list) when (@index > @grid-columns) {
+    @{list} {
+      padding-left: @grid-gutter-width / 2;
+      padding-right: @grid-gutter-width / 2;
+      min-height: 1px;
+      position: relative;
+      float: left;
+    }
+  }
+  .col(1) ;
+}
+.make-grid-columns();
+
+
+.make-columns(@type) {
+  .col(@index) when (@index <= @grid-columns){
+    @selector:~'.col-@{type}-@{index}';
+    @{selector} {
+      @w: @index / @grid-columns * 100 ;
+      width: ~'@{w}%';
+    }
+    .col(@index + 1) ;
+    }
+  .col-offset(@index) when (@index <= @grid-columns){
+    @selector:~'.col-@{type}-offset-@{index}';
+    @{selector} {
+      @w: @index / @grid-columns * 100 ;
+      margin-left: ~'@{w}%';
+    }
+    .col-offset(@index + 1) ;
+  }
+  .col(1) ;
+  .col-offset(1) ;
+}
+.make-columns(xs);
+
+@media (min-width: @screen-sm) {
+  .make-columns(sm) ;
+}
+@media (min-width: @screen-md) {
+  .make-columns(md) ;
+}
+@media (min-width: @screen-lg) {
+  .make-columns(lg) ;
+}
+

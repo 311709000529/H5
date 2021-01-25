@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab-切换</title>
+	<style>
+	*{padding: 0px;margin: 0px;list-style: none;}
+	#container{margin:50px;cursor:pointer;}
+	ul li{float:left;
+		  color:blue;
+		  height:40px;
+		  line-height: 40px;
+		  margin-right:1px;
+		  padding:0px 10px;
+		  }
+	#content{clear:left;width:300px;height:200px;}
+	
+	ul .on{color:red;
+		   font-weight:bold;
+		   border-bottom:2px solid red;
+		   }
+	
+	#content>div{display:none;padding-top:5px;
+				line-height:2.0;
+				text-indent:2em;//用来缩进2个汉字
+			}
+	#content .selected{display:block;}
+	#content ul li{color:black;
+				  font-size: 12px;
+				  font-family: "宋体";
+				  line-height: 
+				  20px;height:20px;
+				  }
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tab">
+			<li class="on">国际新闻</li>
+			<li>国内新闻</li>
+			<li>河南新闻</li>
+		</ul>
+		<div id="content">
+			<div class="selected">“我们将会战胜这个病毒，它有可能是一场生物（武器）进攻的结果，首先影响到中国和伊朗，然后是其他地区。”据伊朗法尔斯通讯社3月5日报道，伊朗伊斯兰革命卫队司令侯赛因·萨拉米当日在讲话中这样表达对伊朗战胜新冠病毒的信心。
+			</div>
+			<div>在以习近平同志为核心的党中央坚强领导下，全党全军全国人民迅速行动，统筹谋划 谋随势动按照习近平总书记指挥部署，疫情防控和经济社会发展工作统筹推进，已初步呈现疫情防控形势持续向好、生产生活秩序加快恢复的态势。14亿人口大国在危难中举国奋起、步调一致，奏响了一曲举国战“疫”的壮阔交响。
+			</div>
+			<div>
+				3月5日上午，省长尹弘赴新乡市调研检查省重点项目开工复工和建设情况。在国道107线新乡境改建项目和郑济铁路卫辉段施工现场，机械设备开足马力，工人们紧张而有序工作，一派忙碌景象。尹弘一行现场察看工程建设进展，了解防控措施。尹弘说，要把安全生产放在工程建设的第一位，既要确保疫情防控到位，又要保证工期进度，积极有序推进开工复工，坚决完成今年经济社会发展目标任务。
+			</div>
+		</div>
+	</div>
+
+	<script>
+  		var tabs=document.getElementById("tab").getElementsByTagName("li");
+  		var divs=document.getElementById("content").getElementsByTagName("div");
+  		
+  		for(var i=0;i<tabs.length;i++){
+  			tabs[i].onmouseover=function(){
+  				change(this)
+  			}
+  		}
+
+  		function change(obj){
+  			for(var i=0;i<tabs.length;i++){
+  				if(tabs[i]==obj){
+  					tabs[i].className="on";
+  					divs[i].className="selected";
+  				}
+  				else{
+  					tabs[i].className="";
+  					divs[i].className="";
+  				}
+
+  			}
+  				
+  		}
+	</script>
+</body>
+</html>

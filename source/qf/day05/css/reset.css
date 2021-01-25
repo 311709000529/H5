@@ -1,0 +1,34 @@
+/* 重置样式,清除掉基本的样式 */
+/* 通配符 */
+*{
+	margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size: 16px;
+	font-weight: normal;
+}
+ul,ol,li{
+	list-style: none;
+}
+em,i{
+	font-style: normal;
+}
+b,strong{
+	font-weight: normal;
+}
+/* 输入框聚焦时候样式发生改变 */
+input{
+	outline: none;
+}
+/* 清除下划线 */
+a,u{
+	text-decoration: none;
+}
+/* important权重 */
+.clearbor{
+	border: 0!important;
+}
+.clearmargin{
+	margin: 0!important;
+}

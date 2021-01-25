@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入你的兴趣！">
+    <ul class="list">
+
+    </ul>
+    <script>
+        var inputNode = document.querySelector('input') ;
+        var ulNode = document.querySelector('.list') ;
+
+        inputNode.onkeyup = function (event) {
+            if ( event.keyCode == 13 ) {
+                var text = inputNode.value;
+                if ( text.trim() ) {
+                    var liNode = document.createElement('li') ;
+                    liNode.innerText = text ;
+                    ulNode.appendChild(liNode) ;
+                    liNode.onmouseenter = function () {
+                        liNode.style.backgroundColor = 'hotpink' ;
+                    }
+                    liNode.onmouseleave = function () {
+                        liNode.style.backgroundColor = 'skyblue' ;
+                    }
+
+                } else {
+                    alert('请输入合法的兴趣！！！') ;
+                }
+                inputNode.value = '' ;
+            }
+
+        }
+    </script>
+</body>
+</html>

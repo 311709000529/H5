@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        #tb{
+            margin: 50px auto 10px;
+        }
+        #tb th,td{
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            vertical-align: center;
+        }
+        #wrap{
+            margin: 0 auto;
+            width: 250px;
+        }
+        #wrap input[type='text'] {
+            outline: none;
+            width: 250px;
+            border: 1px solid black;
+            border-bottom: 3px solid #0055ff;
+            /*border-radius: 5px  ;*/
+            margin-bottom: 5px;
+            padding: 5px 10px;
+        }
+        #wrap input[type='button'] {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <table id="tb">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>事件</th>
+        </tr>
+        <tr>
+            <td>姬文茂</td>
+            <td>18</td>
+            <td>male</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>李庚浩</td>
+            <td>18</td>
+            <td>male</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>王尚位</td>
+            <td>18</td>
+            <td>male</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+    </table>
+    <div id="wrap">
+        <input type="text" placeholder="请输入姓名！！">
+        <br>
+        <input type="text" placeholder="请输入年龄！！">
+        <br>
+        <input type="text" placeholder="请输入性别！！">
+        <br>
+        <input type="button" id="btn" value="点击添加！">
+    </div>
+    <script>
+        var tbody = document.querySelector('#tb tbody')
+        var inputNodes = document.querySelectorAll('#wrap input[type="text"]') ;
+        var btn = document.querySelector('#wrap input[type="button"]') ;
+        btn.addEventListener('click' ,function () {
+            var name = inputNodes[0].value;
+            var age = inputNodes[1].value;
+            var gender = inputNodes[2].value;
+            if ( name.trim() && age.trim() && gender.trim() ) {
+                var trNode = document.createElement('tr') ;
+
+                var nameNode = document.createElement('td') ;
+                nameNode.innerText = name;
+                trNode.appendChild(nameNode) ;
+
+                var ageNode = document.createElement('td') ;
+                ageNode.innerText = age ;
+                trNode.appendChild(ageNode) ;
+
+                var genderNode = document.createElement('td') ;
+                genderNode.innerText = gender ;
+                trNode.appendChild(genderNode) ;
+
+                var del = document.createElement('td') ;
+                del.innerHTML = '<a href="javascript:;">删除</a>' ;
+                trNode.appendChild(del) ;
+
+                tbody.appendChild(trNode) ;
+            } else {
+                alert('请输入合法的数据') ;
+            }
+            inputNodes[0].value = '' ;
+            inputNodes[1].value = '' ;
+            inputNodes[2].value = '';
+        } ,false)
+        tbody.addEventListener('click' ,function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement ;
+            var delNode = target.parentElement.parentElement ;
+            tbody.removeChild(delNode) ;
+        })
+    </script>
+</body>
+</html>

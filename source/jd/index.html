@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="iconfont2/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .top-bar {
+            min-width: 1190px;
+            height: 30px;
+            background-color: #e3e4e5;
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        .w {
+            width: 1190px;
+            margin: 0 auto;
+        }
+
+
+        .top-bar .inner {
+            line-height: 30px;
+        }
+
+
+
+        .city{
+            float: left;
+            position: relative;
+        }
+
+        .city .iconfont{
+            color: #f10215;
+            font-size: 12px;
+        }
+
+        .top-bar a {
+            font: 12px/1.5 'Microsoft YaHei', 'Heiti SC', tahoma, arial, 'Hiragino Sans GB', '\5B8B\4F53', sans-serif;
+            color: #999;
+            text-decoration: none;
+
+        }
+        .city .down{
+            width: 200px;
+            height: 300px;
+
+            border: 1px rgb(204, 204, 204) solid;
+            display: none;
+            box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+
+            position: absolute;
+            top: 30px;
+
+        }
+
+        .city .up{
+            padding: 0 10px 0 5px;
+            height: 29px;
+            position: relative;
+            border: 1px transparent solid;
+            border-bottom: none;
+            z-index: 40;
+        }
+
+        .city:hover .down{
+            display: block;
+        }
+
+        .city:hover .up{
+            padding-bottom: 1px;
+            background-color: white;
+            border-color: rgb(204, 204, 204);
+        }
+
+        .city:hover .up a{
+            color:#f10215;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="w inner">
+        <ul class="city">
+            <li>
+                <div class="up">
+                    <i class="iconfont">&#xe62e;</i>
+                    <a href="#">北京</a>
+                </div>
+
+                <div class="down">
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body></html>

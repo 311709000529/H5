@@ -1,0 +1,250 @@
+/* 首页样式 */
+body{
+	overflow-x: hidden;
+}
+/* 版心 */
+.logo-wrap,.nav-wrap,.banner-wrap,.news-wrap,.case-wrap,.links-wrap,.footer-wrap{
+	width: 960px;
+	margin:0 auto;
+}
+.logo-wrap{
+	/* background: pink; */
+	height: 100px;
+}
+.logo-wrap .logo{
+	height: 66px;
+
+	padding-top: 34px;
+	float: left;
+}
+.logo-wrap img{
+	display: block;
+}
+.logo-wrap .search{
+	height: 66px;
+	padding-top: 34px;
+	float: right;
+}
+.search .txt{
+	width: 184px;
+	height: 26px;
+	border: 1px solid #e5e5e5;
+	background: #f1f1f1;
+	color: #8a8a8a;
+	font-size: 9px;
+	text-transform: uppercase;
+	padding-left: 14px;
+	display: block;
+	float: left;
+	border-right:0px ;
+}
+.search .btn{
+	width: 28px;
+	height: 28px;
+	display: block;
+	float: left;
+	border: 1px solid #e5e5e5;
+	background: #f1f1f1 url(../img/btn_03.jpg) no-repeat center;
+	border-left:0px ;
+}
+/* 导航样式 */
+#nav{
+	background: #323232;
+}
+#nav .nav-wrap{
+	height: 58px;
+}
+.nav-wrap li{
+	float: left;
+}
+.nav-wrap li a{
+	font-size: 12px;
+	display: block;
+	color: white;
+	width: 119px;
+	text-align: center;
+	line-height: 58px;
+	height: 58px;
+	border-right:1px solid #484848 ;
+}
+/* banner样式 */
+#banner{
+	background: #393939;
+}
+.banner-wrap{
+	background: yellow;
+	position: relative;
+	height: 465px;
+}
+.banner-wrap img{
+	position: absolute;
+	left: 50%;
+	margin-left: -673px;
+}
+.news-wrap{
+	height: 240px;
+	/* background: pink; */
+}
+.news_l{
+	width: 478px;
+	height: 240px;
+	/* background: skyblue; */
+	float: left;
+}
+.news_title{
+	/* 消除误差 */
+	line-height: 16px;
+	padding-top: 36px;
+	padding-bottom: 23px;
+	color: #414548;
+}
+.news_list li a{
+	font-size: 12px;
+	color: #4f4f4f;
+	line-height: 24px;
+	height: 24px;
+	display: block;
+	float: left;
+	background: url(../img/list_bg_03.jpg) no-repeat left center;
+	padding-left: 14px;
+}
+.news_list li span{
+	font-size: 12px;
+	color: #969696;
+	line-height: 24px;
+	height: 24px;
+	display: block;
+	float: right;
+	padding-right: 30px;
+}
+.news_c{
+	width: 200px;
+	height: 240px;
+	background: #f1f1f1;
+	float: left;
+	padding: 0 20px;
+}
+.news_c p{
+	font-size: 12px;
+	line-height: 24px;
+	color: #8A8A8A;
+}
+.news_c .txt02{
+	margin-top: 12px;
+}
+.news_r{
+	width: 200px;
+	height: 240px;
+	float: left;
+	padding: 0 20px;
+	background:#fbfbfb url(../img/newsrbg_03.jpg) no-repeat right bottom;
+}
+.news_r p{
+	font-size: 12px;
+	line-height: 24px;
+	color: #8A8A8A;
+}
+.news_r .btn{
+	background: url(../img/abg_03.jpg);
+	width: 66px;
+	height: 19px;
+	display: block;
+	margin-top: 18px;
+}
+/* 项目案例 */
+.case-wrap{
+	height: 306px;
+	/* background: pink; */
+}
+.case-wrap .case_title{
+	font-size: 18px;
+	padding-top: 30px;
+	padding-bottom: 19px;
+	color: #45464b;
+}
+.case_box{
+	height: 240px;
+}
+.case_box dl{
+	width: 210px;
+	float: left;
+	margin-right:40px ;
+}
+.case_box dl dt img{
+	display: block;
+	width: 210px;
+}
+.case_box dl dd{
+	font-size: 12px;
+	line-height: 24px;
+	color: #515151;
+	margin-top: 12px;
+}
+/* 产品 */
+#links{
+	background: #e5e5e5;
+}
+.links-wrap{
+	height: 250px;
+	/* background: pink; */
+}
+.links-wrap .links_l{
+	width: 452px;
+	height: 250px;
+	/* background: skyblue; */
+	float: left;
+}
+.links_title{
+	color: #747474;
+	padding: 30px 0px 11px 12px;
+	border-bottom:1px solid #747474 ;
+	margin-bottom: 14px;
+}
+.links_l ul{
+	float: left;
+	margin-right: 60px;
+}
+.links_l ul li,.links_c ul li{
+	font-size: 12px;
+	line-height: 24px;
+	color: #606060;
+	background: url(../img/listbg_03.jpg) no-repeat left center;
+	padding-left: 12px;
+}
+.links_c{
+	float: left;
+	width: 152px;
+	height: 250px;
+	margin: 0 50px;
+}
+.links_r{
+	width: 256px;
+	height: 250px;
+	float: left;
+}
+.links_r img{
+	display: block;
+	margin: 0 auto;
+}
+.footer-wrap{
+	height: 80px;
+	/* background: pink; */
+}
+.list_box{
+	height: 16px;
+	padding-top: 20px;
+}
+.list_box a,.list_box span{
+	font-size: 10px;
+	line-height: 16px;
+	display: block;
+	float: left;
+	color: #979797;
+}
+.list_box .list_link{
+	padding: 0 7px;
+	border-right: 1px solid #979797;
+}
+.list_box .end{
+	margin-right: 120px;
+}

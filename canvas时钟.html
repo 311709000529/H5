@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas时钟</title>
+    <style>
+        canvas{
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="clock" width="500" height="500"></canvas>
+</body>
+<script>
+    var clock = document.getElementById("clock");
+    ctx = clock.getContext("2d");
+
+    // 绘制表盘固定部分
+    function background() {
+        ctx.beginPath();
+        ctx.arc(250, 250, 250, 0, 2*Math.PI);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(480, 250);
+        ctx.arc(250, 250, 230, 0, 2 * Math.PI);
+        grd = ctx.createRadialGradient(250, 250, 230, 250, 250, 205);
+        grd.addColorStop(0, "#ddd");
+        grd.addColorStop(1, "white");
+        ctx.fillStyle = grd;
+        ctx.fill();
+        ctx.fillStyle = "#000";
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(258, 250);
+        ctx.arc(250, 250, 8, 0, 2*Math.PI);
+        ctx.fill();
+
+        
+        for(var i=1; i<=60; i++) {
+            rad = (i-15)/60*2*Math.PI;
+            var length = 10;
+            if(i%5 == 0) {
+                length = 20;
+                ctx.font = "45px serif";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText(i/5, 250 + Math.cos(rad) * 190, 250 + Math.sin(rad) * 190)
+            }
+            ctx.moveTo(250+Math.cos(rad)*230, 250+Math.sin(rad)*230);
+            ctx.lineTo(250+Math.cos(rad)*(230-length), 250+Math.sin(rad)*(230-length));
+        }
+
+        ctx.font = "15px serif";
+        ctx.fillStyle = "red"
+        ctx.textAlign = "center";
+        console.log()
+        ctx.fillText("距2021考研还剩："+Math.floor((new Date("2020/12/19").getTime()-new Date().getTime())/(24*3600*1000))+"天", 250, 350);
+
+        ctx.stroke();
+    }
+    
+    // 绘制指针
+    function draw() {
+        ctx.clearRect(0, 0, 500, 500);
+        ctx.save();
+        background();
+        var time = new Date();
+        var rad;
+        
+        var hour = time.getHours();
+        var minute = time.getMinutes();
+        var second = time.getSeconds();
+        console.log(time, hour, minute, second)
+
+        // 设置阴影
+        ctx.shadowOffsetX = 4;
+        ctx.shadowOffsetY = 4;
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        rad = (second-15) / 60 * 2 * Math.PI;
+        ctx.moveTo(250 + Math.cos(rad) * 190, 250 + Math.sin(rad) * 190);
+        ctx.lineTo(250 - Math.cos(rad) * 30, 250 - Math.sin(rad) * 30);
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        rad = ((minute-15 + second/60)/60)*2*Math.PI;
+        console.log(rad);
+        ctx.moveTo(250+Math.cos(rad)*170, 250+Math.sin(rad)*170);
+        ctx.lineTo(250 - Math.cos(rad) * 20, 250 - Math.sin(rad) * 20);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.lineWidth = 8;
+        rad = (((hour-3) + minute/ 60 + second / 3600)/12) * 2 * Math.PI;
+        ctx.moveTo(250 + Math.cos(rad) * 110, 250 + Math.sin(rad) * 110);
+        ctx.lineTo(250 - Math.cos(rad) * 10, 250 - Math.sin(rad) * 10);
+        ctx.stroke();
+
+        ctx.restore();
+    }
+
+    setInterval(draw, 1000);
+</script>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            position: relative;
+            height: 200px;
+            width: 300px;
+            margin: 50px auto;
+            background-color: #FF00FF;
+            color: #00FF00;
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            transition: 2s;
+        }
+        #box .tp,#box .bm{
+            width: 0px;
+            height: 20px;
+            background-color: skyblue;
+            position: absolute;
+            transition: 2s;
+        }
+        #box .tp{
+            top: 0;
+            left: 0;
+        }
+        #box .bm{
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="main">
+            河南理工大学
+        </div>
+        <div class="tp">
+
+        </div>
+        <div class="bm">
+
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('#box');
+        var tp = document.querySelector('#box .tp');
+        var bm = document.querySelector('#box .bm');
+        box.onmouseenter = function () {
+            tp.style.width = '300px' ;
+            bm.style.width = '300px' ;
+            box.style.backgroundColor = '#00FF00' ;
+            box.style.color = '#FF00FF' ;
+        }
+        box.onmouseleave = function() {
+            tp.style.width = '0px' ;
+            bm.style.width = '0px' ;
+            box.style.backgroundColor = '#FF00FF' ;
+            box.style.color = '#00FF00' ;
+        }
+    </script>
+</body>
+</html>

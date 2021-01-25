@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            height: 300px;
+            width: 300px;
+            /*background-color: black;*/
+            margin: 100px auto;
+            animation: test 10s infinite linear;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .wrap div{
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+            position: absolute;
+            font-size: 30px;
+
+        }
+
+        .wrap div:nth-child(1) {
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+        .wrap div:nth-child(2) {
+            transform: rotateX(-90deg) translateZ(-100px);
+        }
+        .wrap div:nth-child(3) {
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+        .wrap div:nth-child(4) {
+            transform: rotateY(-90deg) translateZ(-100px);
+        }
+        .wrap div:nth-child(5) {
+            transform: translateZ(100px);
+        }
+        .wrap div:nth-child(6) {
+            transform: translateZ(-100px);
+        }
+        @keyframes test {
+            from{
+                transform: rotate3d(0 ,0 ,0,0deg);
+            }
+            to{
+                transform: rotate3d(1 ,1 ,1,360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+</html>

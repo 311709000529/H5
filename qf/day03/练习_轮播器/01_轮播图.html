@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div class="imgWrapper">
+            <div><img src="../img/4.jpg" alt="4"></div>
+            <div><img src="../img/1.jpg" alt="1"></div>
+            <div><img src="../img/2.jpg" alt="2"></div>
+            <div><img src="../img/3.jpg" alt="3"></div>
+            <div><img src="../img/4.jpg" alt="4"></div>
+            <div><img src="../img/1.jpg" alt="1"></div>
+        </div>
+        <div class="lt"><span class="iconfont">&#xe603;</span></div>
+        <div class="gt"><span class="iconfont">&#xe64d;</span></div>
+        <div class="dot_list">
+            <ul>
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/jquery-1.10.1.js"></script>
+    <script>
+        let $lt = $("#wrap .lt");
+        let $gt = $("#wrap .gt");
+        let $dot_list = $("#wrap .dot_list ul li") ;
+        let $img = $("#wrap .imgWrapper") ;
+        const PAGE_MOVE = 1200;
+        const PAGE = 4 ;
+        let oldIndex = 0 ;
+        let isMove = false ;
+        let autoMover = setInterval(function () {
+            nextPage(false) ;
+        },6000) ;
+
+        console.log('=============main===============')
+        console.log($img.css('left') )
+        $("#wrap").hover(function () {
+            clearInterval(autoMover) ;
+        },function () {
+            autoMover = setInterval(function () {
+                nextPage(false) ;
+            },6000) ;
+        })
+        $lt.click(function () {
+            nextPage(true)
+        })
+        $gt.click(function () {
+            nextPage(false)
+        })
+        $dot_list.click(function () {
+            // console.log($dot_list)
+            // console.log($dot_list.index())
+            nextPage($(this).index())
+        })
+        function nextPage(tag) {
+            console.log('=========nextPage========')
+            console.log(isMove)
+            if ( isMove ) {
+                return ;
+            }
+            isMove = true ;
+            let offset;
+            if ( typeof tag == 'boolean') {
+                if ( tag ) {
+                    offset = PAGE_MOVE ;
+                } else {
+                    offset = -PAGE_MOVE ;
+                }
+            } else {
+                offset = -((tag + 1) * PAGE_MOVE) ;
+            }
+            let time = 30 ;
+            let itemTime = 3 ;
+            let targetOffset;
+            let left = document.querySelector('#wrap .imgWrapper').offsetLeft;
+            console.log('left=  ',left) ;
+            let itemOffset;
+            if(typeof tag == 'boolean') {
+                targetOffset = left + offset ;
+                itemOffset = offset / (time /itemTime)
+            } else {
+                targetOffset = offset ;
+                itemOffset = (offset - left) / (time /itemTime)
+            }
+            let timer = setInterval(function () {
+                left += itemOffset;
+                if ( left == targetOffset ) {
+                    isMove = false;
+                    if(left == 0) {
+                        left = -(PAGE * PAGE_MOVE);
+                    } else if ( left == -((PAGE + 1) * PAGE_MOVE) ) {
+                        left = -PAGE_MOVE;
+                    }
+                    clearInterval(timer) ;
+                }
+                console.log('left =  ',left)
+                $img.css('left' ,left) ;
+            } ,time)
+            upDate(targetOffset) ;
+        }
+        function upDate(target) {
+            if(target == 0) {
+                target = -(PAGE * PAGE_MOVE);
+            } else if ( target == -((PAGE + 1) * PAGE_MOVE) ) {
+                target = -PAGE_MOVE;
+            }
+            console.log(target) ;
+            let index = -(target/PAGE_MOVE) - 1 ;
+            $dot_list[oldIndex].className = '' ;
+            $dot_list[index].className = 'on' ;
+            oldIndex = index ;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition</title>
+    <style>
+        .box1{
+            width: calc( 528px / 4 );
+            height: 271px;
+            margin: 50px auto;
+            background-image: url("img/bigtap-mitu-queue-big.png");
+            /*transition: background-position 500ms steps(3 ,start) ;*/
+            animation: test infinite 500ms steps(4 ,start);
+        }
+        .box1:hover{
+            background-position: calc(-528px / 4 * 3) 0;
+        }
+        @keyframes test {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 528px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+    </div>
+</body>
+</html>

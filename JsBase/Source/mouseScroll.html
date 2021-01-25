@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        #box {
+            height: 100%;
+        }
+        #box .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        #box .scrollBar {
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            width: 20px;
+            height: 100%;
+        }
+        #box .scrollBar .scrollIn{
+            width: 18px ;
+            height: 100px;
+            position: absolute;
+            background-color: #0055ff;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="content">
+
+        </div>
+        <div class="scrollBar">
+            <div class="scrollIn">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var content = document.querySelector('#box .content') ;
+        var scrollIn = document.querySelector('#box .scrollBar .scrollIn') ;
+        var step = 30;
+        for (var i = 0 ; i < 200 ; i ++ ) {
+            content.innerHTML += i + '<br>' ;
+        }
+        var scale = document.documentElement.clientHeight / content.offsetHeight ;
+        var scrollHei = document.documentElement.clientHeight * scale ;
+        scrollIn.style.height = scrollHei + 'px';
+        document.addEventListener("mousewheel",mousescroll) ;
+        document.addEventListener("DOMMouseScroll",mousescroll) ;
+        function mousescroll(event) {
+            var flag ;
+            event = event || window.event;
+            if ( event.wheelDelta ) {
+                if ( event.wheelDelta > 0 ) {
+                    flag = true ;
+                    step = -10 ;
+                } else {
+                    flag = false ;
+                    step = 10 ;
+                }
+            } else if ( event.detail ) {
+                if ( event.detail < 0 ) {
+                    flag = true ;
+                    step = -10 ;
+                } else {
+                    flag = false ;
+                    step = 10 ;
+                }
+            }
+            var scrollInTop = scrollIn.offsetTop + step ;
+            if ( scrollInTop < 0 ) {
+                scrollInTop  = 0 ;
+            } else if ( scrollInTop > document.documentElement.clientHeight - scrollIn.offsetHeight ) {
+                scrollInTop = document.documentElement.clientHeight - scrollIn.offsetHeight ;
+            }
+            scrollIn.style.top = scrollInTop + 'px' ;
+            var contentTop = -1 * scrollInTop / scale ;
+            // console.log(scale) ;
+            content.style.top = contentTop + 'px' ;
+        }
+    </script>
+</body>
+</html>

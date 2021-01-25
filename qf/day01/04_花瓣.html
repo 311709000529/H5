@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            height: 300px;
+            width: 300px;
+            position: relative;
+            margin: 50px auto;
+        }
+        #wrap ul{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+
+        }
+        #wrap ul li{
+            position: absolute;
+            display: block;
+            height: 120px;
+            width: 10px;
+            background-color: #12ff56;
+            border-radius: 23px;
+            box-shadow: 0 0 5px ;
+            transform-origin: center bottom;
+            transition: all 1s linear;
+            /*top: 0;*/
+            /*left: 0;*/
+        }
+        #wrap:hover ul li:nth-child(1){
+            transform: rotateZ(15deg);
+        }
+        #wrap:hover ul li:nth-child(2){
+             transform: rotateZ(30deg);
+        }
+        #wrap:hover ul li:nth-child(3){
+            transform: rotateZ(45deg);
+        }
+        #wrap:hover ul li:nth-child(4){
+            transform: rotateZ(60deg);
+        }
+        #wrap:hover ul li:nth-child(5){
+            transform: rotateZ(75deg);
+        }
+        #wrap:hover ul li:nth-child(6){
+            transform: rotateZ(90deg);
+        }
+        #wrap:hover ul li:nth-child(7){
+            transform: rotateZ(-15deg);
+        }
+        #wrap:hover ul li:nth-child(8){
+            transform: rotateZ(-30deg);
+        }
+        #wrap:hover ul li:nth-child(9){
+            transform: rotateZ(-45deg);
+        }
+        #wrap:hover ul li:nth-child(10){
+            transform: rotateZ(-60deg);
+        }
+        #wrap:hover ul li:nth-child(11){
+            transform: rotateZ(-75deg);
+        }
+        #wrap:hover ul li:nth-child(12){
+            transform: rotateZ(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

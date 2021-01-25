@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery 练习</title>
+
+		<link rel="stylesheet" href="index.css">
+		<style>
+			.todo-main li button {
+				display: none;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script>
+			$(function () {
+				let dateJson = [
+					{
+						'content':'吃饭'
+					},{
+						'content':'睡觉'
+					},{
+						'content':'打豆豆'
+					}
+				]
+				let $newTodo = $("#newTodo") ;
+				let $todoMian = $(".todo-main") ;
+				let $allTodos = $("#allTodos") ;
+				let $allCompletedTodos = $("#allCompletedTodos") ;
+				let $checkAll = $('#checkAll') ;
+				let $removeAllCompleted = $("#removeAllCompleted") ;
+				function bingData(data) {
+					for(let i = 0 ; i < data.length ; i ++ ) {
+						$todoMian.append('<li class="todoItem" style="background:rgb(255,255,255);">' +
+								'<label><input type="checkbox"><span>' + data[i].content + '</span></label>' +
+								'<button class="btn btn-danger" style="display: none">删除</button></li>')
+					}
+					allTodos() ;
+				};
+				function allTodos(){
+					$allTodos.html( $todoMian.find('input').length) ;
+				} ;
+				function allCompletedTodos() {
+					$allCompletedTodos.html( $todoMian.find(':checkbox:checked').length ) ;
+				} ;
+				$checkAll.on('click',function () {
+					// console.log($todoMian.find(':checkbox')) ;
+					$todoMian.find(':checkbox').prop('checked', this.checked ) ;
+					allCompletedTodos()
+				}) ;
+
+				$todoMian.delegate('.todoItem input','click',function () {
+					allCompletedTodos() ;
+					$checkAll.prop('checked' , $todoMian.find(':checkbox').length != 0 && $todoMian.find(':checkbox:not(:checked)').length == 0) ;
+				})
+				$todoMian.delegate('.todoItem' ,'mouseenter' ,function () {
+					$(this).css('backgroundColor' ,'#ccc') ;
+					$(this).find('button').show() ;
+				})
+				$todoMian.delegate('.todoItem' ,'mouseleave' ,function () {
+					$(this).css('backgroundColor' ,'#fff') ;
+					$(this).find('button').hide() ;
+				})
+				$todoMian.delegate('button' ,'click' ,function () {
+					$(this).parent().remove() ;
+					allTodos() ;
+					allCompletedTodos() ;
+					$checkAll.prop('checked' , $todoMian.find(':checkbox').length != 0 && $todoMian.find(':checkbox:not(:checked)').length == 0) ;
+				})
+				$removeAllCompleted.on('click' ,function () {
+					$todoMian.find(':checkbox:checked').parent().parent().remove() ;
+					allTodos() ;
+					allCompletedTodos() ;
+					$checkAll.prop('checked',false);
+				})
+				$newTodo.on('keydown' ,function (event) {
+					if ( event.keyCode == 13 ) {
+						let vV = $(this).val();
+						if ( vV.trim() == '' ) {
+							alert('请输入正确的信息') ;
+						} else {
+							let data = [{
+								'content':vV
+							}] ;
+							bingData(data) ;
+							$checkAll.prop('checked',false);
+						}
+						$(this).val('') ;
+					}
+				}) ;
+				bingData(dateJson) ;
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="root">
+			<div class="todo-container">
+				<div class="todo-wrap">
+					<div class="todo-header">
+						<input id="newTodo" type="text" placeholder="请输入你的任务名称，按回车键确认" />
+					</div>
+					<ul class="todo-main"></ul>
+					<div class="todo-footer">
+						<label>
+          					<input id="checkAll" type="checkbox"/>
+        				</label>
+						<span>
+          					已完成<span id="allCompletedTodos">0</span> / 全部<span id="allTodos">2</span>
+						</span>
+						<button id="removeAllCompleted" class="btn btn-danger">清除已完成任务</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>

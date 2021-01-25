@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02.transition</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            /*background-color: red;*/
+            background-image: url("img/trump_run.png");
+            transition: 500ms background-position steps(5 ,start );
+            background-position: 0 200px;
+            animation: cp 500ms steps(6 ,start) infinite;
+        }
+        .box:hover{
+            background-position: calc(-600px /6 * 5) 200px;
+        }
+        @keyframes cp {
+            0%{
+                background-position: 0 200px;
+            }
+            100%{
+                background-position: 600px 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

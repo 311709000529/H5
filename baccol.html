@@ -1,0 +1,79 @@
+$('#div1').css('background' ,'pink') ;
+
+//      1. 选中ul下所有的的span                                1. 操作任意属性
+$('ul span').css('background' ,'pink');                     attr()
+//      2. 选中ul下所有的子元素span    直接子级选择器             removeAttr()
+$('ul>span').css('background','pink') ;                     prop()
+//      3. 选中class为box的下一个li                            2. 操作class属性
+$('.box + ').css('background' ,'pink') ;                    addClass()
+//      4. 选中ul下的class为box的元素后面的所有兄弟元素            removeClass()
+$('.box ~ ').css('background' ,'pink') ;                    3. 操作HTML代码/文本/值
+                                                            html()
+1. 选择不可用的文本输入框                                       val()
+$(':text:disabled').css('background' ,'red') ;
+$(':input:text:disabled').css('background','pink');         获取/设置标签的位置数据
+2. 显示选择爱好 的个数                                          * offset(): 相对页面左上角的坐标
+console.log($(":checkbox:checked").length );                * position(): 相对于父元素左上角的坐标
+
+console.log($(':input:checkbox:checked').length)
+3. 显示选择的城市名称
+console.log($(':input option:selected').html())
+console.log($(':input option:selected').html());
+
+1. first()
+2. last()
+3. eq(index|-index)
+4. filter(selector)
+5. not(selector)
+6. has(selector)
+
+1. 操作任意属性
+attr()
+removeAttr()
+prop()
+2. 操作class属性
+addClass()
+removeClass()
+3. 操作HTML代码/文本/值
+html()
+val()
+
+$("div:first")
+$("div:last")
+$("div:gt(5):lt(2)")
+$("div:not(.box)")
+$('div:hidden')
+$('div:contains(BBBBB)')
+$('div:eq(2)')
+
+在已经匹配出的元素集合中根据选择器查找孩子/父母/兄弟标签
+1. children(): 子标签中找
+2. find() : 后代标签中找
+3. parent() : 父标签
+4. prevAll() : 前面所有的兄弟标签
+5. nextAll() : 后面所有的兄弟标签
+6. siblings() : 前后所有的兄弟标签
+
+1. 添加/替换元素
+* append(content)
+向当前匹配的所有元素内部的最后插入指定内容
+* prepend(content)
+向当前匹配的所有元素内部的最前面插入指定内容
+* before(content)
+将指定内容插入到当前所有匹配元素的前面
+* after(content)
+将指定内容插入到当前所有匹配元素的后面替换节点
+* replaceWith(content)
+用指定内容替换所有匹配的标签删除节点
+2. 删除元素
+* empty()
+删除所有匹配元素的子元素
+* remove()
+删除所有匹配的元素
+
+4. jQuery的事件委托API
+* 设置事件委托: $(parentSelector).delegate(childrenSelector, eventName, callback)
+* 移除事件委托: $(parentSelector).undelegate(eventName)
+
+
+

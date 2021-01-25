@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .line-50 {
+            height: 50px;
+        }
+
+        .line-20 {
+            height: 20px;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px;
+        }
+
+        .footer dt {
+            font-size: 22px;
+        }
+
+        .gap {
+            height: 20px;
+        }
+
+        .bottomest {
+            padding: 20px;
+            background: #2A2A2A;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航条 start -->
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span style='color: #5566aa;' class="glyphicon glyphicon-home"
+                                                           aria-hidden="true"></span></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#"> 首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">谷粒学院</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">前端 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Javascript</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li><a href="#">Bootstrap</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">后端 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="关键词">
+                        </div>
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">站内信<span class="badge">4</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">个人中心 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </div>
+    </nav>
+    <!-- 导航条 end-->
+    <div class="container">
+        <!-- 警告栏start -->
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <strong>恭喜恭喜! </strong> 注册成功
+        </div>
+        <!-- 警告栏end -->
+        <!-- 巨幕 start  -->
+        <div class="jumbotron">
+            <h2>尚硅谷视频教程更新啦!!!</h2>
+            <p>珍惜每一分钟学习的时间.......</p>
+            <p><a class="btn btn-primary btn-md" href="#" role="button">立即学习</a></p>
+        </div>
+        <!-- 巨幕 end  -->
+        <!--    路径导航 start-->
+        <ol class="breadcrumb">
+            <li class="h4"><a href="#">首页</a></li>
+            <li class="active">热门课程</li>
+        </ol>
+        <!--    路径导航 end-->
+        <!--    课程 start-->
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="./img/htmlcss.jpg" alt="...">
+                    <div class="caption">
+                        <h4>HTML + CSS 快速入门</h4>
+                        <p>这是一个编程的入门课程</p>
+                        <span class="label label-success">免费</span>
+                        <span class="label label-info">入门</span>
+                    </div>
+                </div>
+            </div>
+            <!--    课程 end-->
+        </div>
+        <!--    课程 end-->
+        <!--    分页start-->
+        <nav aria-label="Page navigation">
+            <ul class="pagination pull-right">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!--    end-->
+        <div class="line-50"></div>
+        <!--    合作伙伴start-->
+        <h1 class="page-header">合作伙伴</h1>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="https://tcs.teambition.net/thumbnail/011cb4b49c09d5c7f73e95042cfe71889692/w/300/h/200"
+                         alt="...">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="https://tcs.teambition.net/thumbnail/011cb4b49c09d5c7f73e95042cfe71889692/w/300/h/200"
+                         alt="...">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="https://tcs.teambition.net/thumbnail/011cb4b49c09d5c7f73e95042cfe71889692/w/300/h/200"
+                         alt="...">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <img src="https://tcs.teambition.net/thumbnail/011cb4b49c09d5c7f73e95042cfe71889692/w/300/h/200"
+                         alt="...">
+                </div>
+            </div>
+
+        </div>
+        <!--    合作伙伴end-->
+    </div>
+    <div class="line-50"></div>
+    <!--底部 start-->
+    <div class="container-fluid footer hidden-xs">
+        <div class="col-lg-3 text-center">
+            <dl>
+                <dt>新手入门</dt>
+                <dd>用户注册</dd>
+                <dd>用户登录</dd>
+                <dd>用户指南</dd>
+            </dl>
+        </div>
+        <div class="col-lg-3 text-center">
+            <dl>
+                <dt>新手入门</dt>
+                <dd>用户注册</dd>
+                <dd>用户登录</dd>
+                <dd>用户指南</dd>
+            </dl>
+        </div>
+        <div class="col-lg-3 text-center">
+            <dl>
+                <dt>新手入门</dt>
+                <dd>用户注册</dd>
+                <dd>用户登录</dd>
+                <dd>用户指南</dd>
+            </dl>
+        </div>
+        <div class="col-lg-3 text-center">
+            <dl>
+                <dt>新手入门</dt>
+                <dd>用户注册</dd>
+                <dd>用户登录</dd>
+                <dd>用户指南</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="container-fluid bottomest text-center">
+        ©2018课程版权均归谷粒学院所有 京ICP备17055252号
+    </div>
+    <!--底部 end-->
+    <script>
+        let flag = true
+        setInterval(function () {
+            var title1 = '[　　　] 谷粒学院上新啦!!!..';
+            var title2 = '[新提醒] 谷粒学院上新啦!!!..';
+
+            if (flag) {
+                document.title = title1;
+            } else {
+                document.title = title2;
+            }
+            flag = !flag
+        }, 500);
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

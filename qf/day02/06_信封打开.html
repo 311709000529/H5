@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("images/bg.jpg") no-repeat 40% 20%/140%;
+        }
+        h1{
+            position: absolute;
+            transform: rotate(-30deg);
+            color: red;
+            text-shadow: 5px 3px 10px black;
+            font-size: 45px;
+            animation: change 2s linear infinite;
+            cursor: pointer;
+        }
+        .content{
+            width: 350px;
+            height: 200px;
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            transform: rotate(-30deg);
+        }
+        @keyframes change {
+            0%{
+                transform: scale(1) rotate(-30deg);
+            }
+            50%{
+                transform: scale(1.2) rotate(-30deg);
+            }
+            100%{
+                transform: scale(1) rotate(-30deg);
+            }
+        }
+        .yes{
+            top: 75%;
+            left: 29%;
+        }
+        .no{
+            top: 50%;
+            left: 54%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+
+    </div>
+    <h1 class="yes">同意</h1>
+    <h1 class="no">不同意</h1>
+    <script>
+        let yes = document.querySelector('.yes')
+        let no = document.querySelector('.no')
+        let txt = '曾经有一份真挚的爱情摆在我面前我没有珍惜它,直到失去才后悔莫及人世间最痛苦的事情莫过于此如果上天再给一次机会我希望对那个女孩说三个字我爱你如果非要加上一个期限的话我希望是一万年....' ;
+        let len = txt.length;
+        let index = 0;
+        no.onclick = function () {
+            no.style.top = Math.floor(Math.random() * 90) + '%'
+            no.style.left = Math.floor(Math.random() * 90) + '%'
+        }
+        yes.onclick = function () {
+            window.location = '01_3D旋转相册.html' ;
+        }
+        let timer = setInterval(function () {
+            if ( index >= len-1 ) {
+                clearInterval(timer) ;
+            }
+            document.querySelector('.content').innerHTML += txt[index] ;
+            index ++ ;
+        } ,10)
+    </script>
+</body>
+</html>

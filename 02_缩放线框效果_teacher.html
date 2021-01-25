@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>缩放线框效果</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: pink;
+			}
+			.dlrbbox{
+				width: 450px;
+				height: 600px;
+				margin: 100px auto;
+				box-shadow: 0px 0px 20px black;
+				overflow: hidden;
+				position: relative;
+			}
+			.dlrbbox img{
+				width: 450px;
+				height: 600px;
+				transition: 1s;
+				position: absolute;
+			}
+			.dlrbbox:hover img{
+				transform: scale(1.4);
+			}
+			.dlrbbox div{
+				position: absolute;
+				top: 0;left: 0;
+				bottom: 0;right: 0;
+				margin: auto;
+				/* opacity: 0.6; */
+			}
+			.dlrbbox .bor01{
+				width: 400px;
+				height: 450px;
+				/* background: red; */
+				border-top: 5px dashed hotpink;
+				border-bottom: 5px dashed hotpink;
+				transform: scaleY(0);
+				transition: 1s;
+			}
+			.dlrbbox:hover .bor01{
+				transform: scaleY(1);
+			}
+			.dlrbbox .bor02{
+				width: 300px;
+				height: 550px;
+				/* background: skyblue; */
+				border-left: 5px dashed hotpink;
+				border-right: 5px dashed hotpink;
+				transform: scaleX(0);
+				transition: 1s;
+			}
+			.dlrbbox:hover .bor02{
+				transform: scaleX(1);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="dlrbbox">
+			<img src="img/dlrb.jpg" >
+			<div class="bor01"></div>
+			<div class="bor02"></div>
+		</div>
+	</body>
+</html>

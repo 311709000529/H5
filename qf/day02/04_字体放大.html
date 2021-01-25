@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            font-size: 12px;
+            color: #12ff56;
+        }
+    </style>
+</head>
+<body>
+<input type='button' value="增大"> <br>
+<input type="button" value="缩小"> <br>
+    <p>“曾经有一份真挚bai的爱情摆在我的面du前，我没有zhi珍惜，等到失去的时候才追悔莫及，人世间最痛苦的事情莫过于此。如果上天能够给我一个重新来过的机会，我会对那个女孩子说三个字：我爱你。如果非要给这份爱加上一个期限，我希望是，一万年。”</p>
+<script>
+    var p = document.querySelector('p') ;
+    var btn = document.querySelectorAll('input') ;
+    btn[0].onclick = function (){
+        p.style.fontSize = '40px' ;
+    }
+    btn[1].onclick = function (){
+        p.style.fontSize = '12px' ;
+    }
+</script>
+</body>
+</html>

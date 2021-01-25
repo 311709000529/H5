@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outer{
+            margin: 30px auto;
+            height: 600px;
+            width: 600px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .inner{
+            position: absolute;
+            height: 400px;
+            width: 400px;
+            background-color: #FF00FF;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .deepest{
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background-color: #0000FF;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="deepest">
+                在这是一个div
+            </div>
+        </div>
+    </div>
+    <script>
+        var outer = document.querySelector('.outer') ;
+        var inner = document.querySelector('.outer .inner') ;
+        var deepest = document.querySelector('.outer .inner .deepest') ;
+        outer.addEventListener('click' ,function () {
+            console.log("i'm outer") ;
+        } ,false) ;
+        inner.addEventListener('click' ,function () {
+            console.log("I'm inner") ;
+        },false) ;
+        deepest.addEventListener('click' ,function (event) {
+            event = event || window.event ;
+            console.log("I'm deepest") ;
+            event.stopPropagation();
+        } ,false) ;
+    </script>
+</body>
+</html>
+

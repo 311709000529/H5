@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+</head>
+<body>
+	<canvas id=mycanvas width=500 height=500 ></canvas>
+	<script>
+	var cav=document.getElementById("mycanvas");
+	var cxt=cav.getContext("2d");
+
+	function drawClock(){
+		cxt.clearRect(0,0,500,500)
+
+	var now=new Date()
+	sec=now.getSeconds()
+	min=now.getMinutes()
+	hour=now.getHours()
+	hour=hour+min/60
+	hour=hour>12?hour-12:hour
+
+	var endTime=new Date("2020/12/21 00:00:00"); 
+	var second = parseInt((endTime.getTime()-now.getTime())/1000);
+	var d = parseInt(second/3600/24); //天数
+	cxt.fillStyle='red'
+	cxt.font="20px 楷体"
+	cxt.fillText("距2021年考研还剩: "+d+"天 ",140,320)
+	cxt.fillStyle='blue'
+	cxt.font="30px 楷体"
+
+	var img=new Image()
+	img.src="cv.jpg"
+	img.onload=function(){
+		cxt.drawImage(img,190,100)
+		
+		// var ptrn=cxt.createPattern(img,'repeat')
+		// cxt.fillStyle=ptrn;
+		// cxt.fillRect(20,20,300,200)
+	}
+
+	
+
+	// 画表盘
+	cxt.beginPath()
+	cxt.strokeStyle='blue';
+	cxt.lineWidth=5;
+	cxt.arc(250,250,200,0,2*Math.PI,false)
+	cxt.stroke()
+	cxt.closePath()
+
+	// 画时刻度
+	for(var i=0;i<12;i++){
+		cxt.beginPath()
+		cxt.save()
+		cxt.translate(250,250)
+		cxt.lineWidth=5
+		cxt.strokeStyle='black'
+		cxt.rotate(i*30*Math.PI/180)
+		cxt.moveTo(0,-190)
+		cxt.lineTo(0,-170)
+		cxt.stroke()
+		cxt.restore()
+		cxt.closePath()
+	}
+	 // 画分刻度
+	for(var i=0;i<60;i++){
+		cxt.beginPath()
+		cxt.save()
+		cxt.translate(250,250)
+		cxt.lineWidth=3
+		cxt.strokeStyle='black'
+		cxt.rotate(i*6*Math.PI/180)
+		cxt.moveTo(0,-190)
+		cxt.lineTo(0,-180)
+		cxt.stroke()
+		cxt.restore()
+		cxt.closePath()
+	}
+
+	// 画时针
+		cxt.beginPath()
+		cxt.save()
+		cxt.translate(250,250)
+		cxt.lineWidth=5
+		cxt.strokeStyle='black'
+		cxt.rotate(30*hour*Math.PI/180)
+		cxt.moveTo(0,-150)
+		cxt.lineTo(0,5)
+		cxt.stroke()
+		cxt.restore()
+		cxt.closePath()
+
+		// 画分针
+		cxt.beginPath()
+		cxt.save()
+		cxt.translate(250,250)
+		cxt.lineWidth=3
+		cxt.strokeStyle='blue'
+		cxt.rotate(min*6*Math.PI/180)
+		cxt.moveTo(0,-160)
+		cxt.lineTo(0,10)
+		cxt.stroke()
+		cxt.restore()
+		cxt.closePath()
+
+		// 画秒针
+		cxt.beginPath()
+		cxt.save()
+		cxt.translate(250,250)
+		cxt.lineWidth=1
+		cxt.strokeStyle='red'
+		cxt.rotate(sec*6*Math.PI/180)
+		cxt.moveTo(0,-168)
+		cxt.lineTo(0,15)
+		cxt.stroke()
+		cxt.restore()
+		cxt.closePath()
+
+		// 画圆心
+		cxt.beginPath()
+		cxt.save()
+		cxt.translate(250,250)
+		cxt.lineWidth=1
+		cxt.strokeStyle='red'
+		cxt.fillStyle="#ccc"
+		cxt.arc(0,0,5,0,2*Math.PI,true)
+		cxt.stroke()
+		cxt.fill()
+		cxt.restore()
+		cxt.closePath()
+
+
+		// 画秒针末端圆圈
+		cxt.beginPath()
+		cxt.save()
+		cxt.translate(250,250)
+		cxt.lineWidth=1
+		cxt.strokeStyle='red'
+		cxt.fillStyle="#ccc"
+		cxt.rotate(sec*6*Math.PI/180)
+		cxt.arc(0,-140,5,0,2*Math.PI,true)
+		cxt.stroke()
+		cxt.fill()
+		cxt.restore()
+		cxt.closePath()
+	}
+		//setInterval(drawClock,1000)
+		
+		function anim(){
+		requestAnimationFrame(function(){
+			drawClock()
+			anim()
+		})
+		}
+		anim()
+	</script>
+	
+	
+</body>
+</html>

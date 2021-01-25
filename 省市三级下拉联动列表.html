@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单的应用</title>
+	<style>
+		fieldset{width:33%;border:1px dashed blue;}
+		legend{margin-left: 60px;color:#f00;}
+		span{width: 65px;float: left;text-align-last: justify;}
+		[type="checkbox"] {margin-left: 5px;}
+	</style>
+</head>
+<body>
+	<form action="">
+		<fieldset><legend>注册信息</legend>
+			<span>用户名：</span><input type="text" placeholder="请输入用户名"><br><br>
+			<span>密码：</span><input type="password"><br><br>
+			<span>性别：</span>
+			<input type="radio" name="gender" id="man"><label for="man">男</label>
+			<input type="radio" name="gender" id="woman"><label for="woman">女</label><br><br>
+			<span>爱好：</span><input type="checkbox">学习 <input type="checkbox">唱歌 <input type="checkbox">舞蹈 <input type="checkbox">跑步<br><br>
+			<span>生日：</span><input type="text"><br><br>
+			<span>邮箱：</span><input type="text"><br><br>
+			<span>博客：</span><input type="text" placeholder="年/月/日"><br><br>
+			<span style="width: auto;">喜爱的颜色：</span><input type="color" value="#000000"><br><br>
+			
+			<span>籍贯：</span>
+			<select name="" id="prov" onchange=changeCity()>
+				<option value="">--请选择省--</option>
+			</select>
+
+			<select name="" id="city" onchange="changeCountry()">
+				<option value="">--请选择市--</option>
+			</select>
+
+			<select name="" id="country">
+				<option value="">--请选择区县--</option>
+			</select>
+
+			<br><br>
+
+			<input type="submit" value="提交" />
+			<input type="reset" value="重置" />
+		</fieldset>
+		</form>
+		<script>
+			var prov = document.getElementById("prov");
+			var city = document.getElementById("city");
+			var country = document.getElementById("country")
+			var cityArray;
+			var countryArray;
+			
+			allArray = new Array(
+				[new Option("--请选择省--")],
+				[
+					new Option("河南省"), [
+						[new Option("--请选择市--")],
+						[
+							new Option("焦作市"), [
+								[new Option("--请选择区县--")],
+								[new Option("山阳区")]
+							]
+						]
+					]
+				],
+				[
+					new Option("江苏省"), [
+						[new Option("--请选择市--")],
+						[
+							new Option("苏州市"), [
+								[new Option("--请选择区县--")],
+								[new Option("姑苏区")]
+							]
+						]
+					]
+				],
+				[
+					new Option("浙江省"), [
+						[new Option("--请选择市--")],
+						[
+							new Option("宁波市"), [
+								[new Option("--请选择区县--")],
+								[new Option("鄞州区")],
+								[new Option("江东区")]
+							]
+						]
+					]
+				],	
+			)
+
+			for(var i=0;i<allArray.length;i++){
+				prov.options[i]=allArray[i][0]
+			}
+
+			function changeCity(){
+				// city.options.length=0;
+				var index=prov.selectedIndex;
+				cityArray = allArray[index][1];
+				for(var i=0;i<cityArray.length;i++){
+					city.options[i]=cityArray[i][0];
+				}
+			}
+
+			function changeCountry() {
+				var index=city.selectedIndex;
+				countryArray = cityArray[index][1];
+				for(var i=0; i<countryArray.length; i++) {
+					country.options[i] = countryArray[i][0];
+				}
+			}
+		</script>
+			
+		
+	
+</body>
+</html>

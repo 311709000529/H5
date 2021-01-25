@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #outer{
+            width: 300px;
+            height: 300px;
+            /*background-color: red;*/
+            display: flex;
+            flex-flow: row wrap;
+            margin: 50px auto;
+            animation: move 2s infinite linear;
+        }
+        #outer div{
+            width: 150px;
+            height: 150px;
+            background-color: #00FF00;
+        }
+        #outer div:nth-child(1),#outer div:nth-child(4) {
+            border-radius: 0 150px 0 150px;
+        }
+        #outer div:nth-child(2),#outer div:nth-child(3) {
+            border-radius: 150px 0 150px 0;
+        }
+        @keyframes move {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <input type="button" value="开始/停止">
+    <script>
+        var btn = document.querySelector('input') ;
+        var boxNode = document.querySelector('#outer') ;
+        var flag = true ;
+        btn.addEventListener('click' ,function () {
+            if ( flag ) {
+                boxNode.style.animationPlayState = 'paused' ;
+            } else {
+                boxNode.style.animationPlayState = 'running' ;
+            }
+            flag = !flag;
+        })
+    </script>
+</body>
+</html>

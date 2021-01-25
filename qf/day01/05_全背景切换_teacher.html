@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全背景切换</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background:black url(images/bg.gif);
+			}
+			.imgshow{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+			}
+			.imgshow img{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				opacity: 0;
+				transition: 1.5s;
+			}
+			.btn_list{
+				position: absolute;
+				bottom: 10%;
+			}
+			.btn_list li{
+				width: 200px;
+				height: 200px;
+				float: left;
+				list-style: none;
+				border-radius: 50%;
+				overflow: hidden;
+				margin:0px 40px ;
+				box-shadow: 0px 0px 20px white;
+				
+			}
+			.btn_list li img{
+				width: 120%;
+				height: 120%;
+				position: relative;
+				left: -20px;
+			}
+			/* 左右位移 */
+			#pic01{
+				left: -100%;
+			}
+			#pic01:target{
+				opacity: 1;
+				left: 0;
+			}
+			/* 上下 */
+			#pic02{
+				top: -100%;
+				left: -100%;
+			}
+			#pic02:target{
+				opacity: 1;
+				left: 0;
+				top: 0;
+			}
+			
+			/* 旋转+缩放 */
+			#pic03{
+				transform: scale(0);
+			}
+			#pic03:target{
+				opacity: 1;
+				transform: scale(1) rotate(360deg);
+			}
+			
+			/* 位移+倾斜 */
+			#pic04{
+				right: -100%;
+				transform: skewX(60deg);
+			}
+			#pic04:target{
+			    right: 0;
+				opacity: 1;
+				transform: skewX(0deg);
+
+			}
+			/* 缩放 */
+			#pic05{
+				
+				transform: scale(2);
+			}
+			#pic05:target{
+
+				opacity: 1;
+			transform: scale(1);
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="imgshow">
+			<img id="pic01" src="images/1.jpg" >
+			<img id="pic02" src="images/2.jpg" >
+			<img id="pic03" src="images/3.jpg" >
+			<img id="pic04" src="images/4.jpg" >
+			<img id="pic05" src="images/5.jpg" >
+		</div>
+		<ul class="btn_list">
+			<li><a href="#pic01"><img src="images/1-1.jpg" ></a></li>
+			<li><a href="#pic02"><img src="images/2-1.jpg" ></a></li>
+			<li><a href="#pic03"><img src="images/3-1.jpg" ></a></li>
+			<li><a href="#pic04"><img src="images/4-1.jpg" ></a></li>
+			<li><a href="#pic05"><img src="images/5-1.jpg" ></a></li>
+		</ul>
+	</body>
+</html>

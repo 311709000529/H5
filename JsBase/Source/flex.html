@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            margin: 50px auto;
+            width: 800px;
+            height: 500px;
+            background-color: #bfa;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        #box .item{
+            width: 200px;
+            height: 200px;
+        }
+        #box .item:nth-child(1) {
+             background-color: #00FF00;
+         }
+        #box .item:nth-child(2) {
+            background-color: #FF00FF;
+        }
+        #box .item:nth-child(3) {
+            background-color: #0055ff;
+            align-self: flex-end;
+        }
+        #box .item:nth-child(4) {
+            background-color: #cc9900;
+        }
+        #box .item:nth-child(5) {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

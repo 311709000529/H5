@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            height: 300px;
+            width: 500px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #wrap .img_wrap{
+            height: 300px;
+            width: 500px;
+        }
+        #wrap .img_wrap:hover img{
+            transform: scale(1.2);
+        }
+        #wrap .img_wrap:hover .top{
+            width: 450px;
+            border-color: #5A5A5A;
+        }
+        #wrap .img_wrap:hover .bottom{
+            height: 250px;
+            border-color: #5A5A5A;
+        }
+        #wrap img{
+            height: 300px;
+            width: 500px;
+            transition: all 1s;
+        }
+        #wrap .top{
+            /*display: none;*/
+            position: absolute;
+            background-color: transparent;
+            height: 200px;
+            width: 0;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            border: 5px dashed transparent;
+            border-left: none;
+            border-right: none;
+            transition: all 1s;
+        }
+        #wrap .bottom{
+            /*display: none;*/
+            position: absolute;
+            background-color: transparent;
+            height: 0;
+            width: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            border: 5px dashed transparent;
+            border-top: none;
+            border-bottom: none;
+            transition: all 1s;
+        }
+        /*#wrap:hover .bottom{*/
+        /*    display: block;*/
+        /*}*/
+        /*#wrap:hover .top{*/
+        /*    display: block;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="img_wrap">
+            <img src="9.jpg" alt="">
+            <div class="top">
+            </div>
+            <div class="bottom">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

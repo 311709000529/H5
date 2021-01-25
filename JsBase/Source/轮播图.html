@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../iconfont/iconfont.css">
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+
+        .banner{
+            position: relative;
+            margin: 50px auto;
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .banner .bannerList {
+            width: 4000px;
+            height: 300px;
+            /*float: left;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .banner .bannerList img {
+            display: block;
+            width: 500px;
+            height: 300px;
+            float: left;
+        }
+        .banner .left,.banner .right{
+            position: absolute;
+            height: 60px;
+            width: 40px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 60px;
+            color: rgba(50, 23, 28, 0.34);
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: gray;
+            opacity: 0;
+            transition: opacity 2s;
+            cursor: default;
+        }
+        .banner .left{
+            left: 0;
+        }
+        .banner .right{
+            right: 0;
+        }
+        .banner .iconLists{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+        }
+        .banner .iconLists li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            background-color: gray;
+        }
+        .banner .iconLists .choose{
+            background-color: red;
+            /*color: red;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <ul class = 'bannerList'>
+            <li><img src="../img/./2.jpg" alt=""></li>
+            <li><img src="../img/./3.jpg" alt=""></li>
+            <li><img src="../img/./4.jpg" alt=""></li>
+            <li><img src="../img/./5.jpg" alt=""></li>
+            <li><img src="../img/./6.jpg" alt=""></li>
+            <li><img src="../img/./7.jpg" alt=""></li>
+            <li><img src="../img/./8.jpg" alt=""></li>
+            <li><img src="../img/./9.jpg" alt=""></li>
+        </ul>
+        <span class = 'left iconfont'>&#xe61e;</span>
+        <span class = 'right iconfont'>&#xe61b;</span>
+        <ul class = 'iconLists'>
+            <li class = 'choose'></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <script>
+            var banner = document.querySelector('.banner') ;
+            var bannerList = document.querySelector('.banner .bannerList') ;
+            var left = document.querySelector('.left');
+            var right = document.querySelector('.right');
+            var timeAll = 600;
+            var timeStep = 20 ;
+            banner.onmouseenter = function () {
+                left.style.opacity = 1;
+                right.style.opacity = 1;
+            };
+            banner.onmouseleave = function () {
+                left.style.opacity = 0;
+                right.style.opacity = 0;
+            };
+            var liLists = document.querySelectorAll('.banner .iconLists li');
+            for (var i = 0 ; i < liLists.length ; i ++ ) {
+                liLists[i].onmouseenter = function () {
+                    for (var j = 0 ; j < liLists.length ; j ++ ) {
+                        liLists[j].className = '';
+                    }
+                    this.className = 'choose';
+                }
+            }
+            left.onclick = function () {
+                move(false) ;
+            } ;
+            right.onclick = function () {
+                move(true) ;
+
+            } ;
+            function move(flag) {
+                console.log('111') ;
+                var dis ;
+                if ( flag ) {
+                    dis = -500 ;
+                } else {
+                    dis = 500 ;
+                }
+                var lastDis = dis + bannerList.offsetLeft;
+                var moveStep = dis / (timeAll/timeStep) ;
+                var timer = setInterval(function () {
+                    var left = bannerList.offsetLeft + moveStep ;
+                    // if (  )  {
+                    //
+                    // } else if (  ) {
+                    //
+                    // }
+
+                    bannerList.style.left = left + 'px' ;
+                    console.log(lastDis + '       ' + left) ;
+                    if ( lastDis == left ) {
+                        clearInterval(timer) ;
+                    }
+                },timeStep) ;
+            }
+        </script>
+    </div>
+</body>
+</html>

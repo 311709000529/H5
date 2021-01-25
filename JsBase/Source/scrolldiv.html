@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        a{
+            text-decoration: none;
+        }
+        input{
+            outline: none;
+        }
+        #wrap{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        #wrap .content{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #wrap .scrollBar{
+            height: 100%;
+            width: 20px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 1px solid black;
+            border-bottom: 0;
+            border-top: 0;
+        }
+        #wrap .scrollBar .scrollIn {
+            width: 16px;
+            background-color: #0055ff;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 20px;
+            margin: auto;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="content">
+
+        </div>
+        <div class="scrollBar">
+            <div class="scrollIn">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var divbox = document.querySelector('#wrap .content') ;
+        var scrollDiv = document.querySelector('#wrap .scrollBar .scrollIn') ;
+        for (var i = 0 ; i < 200 ; i ++ ) {
+            divbox.innerHTML += i + '<br>' ;
+        }
+        var scale = document.documentElement.clientHeight / divbox.offsetHeight ;
+        // console.log(document.documentElement.clientHeight) ;
+        // console.log(divbox.clientHeight) ;
+        // console.log(scale) ;
+        scrollDiv.style.height = document.documentElement.clientHeight * scale + 'px';
+        scrollDiv.onmousedown = function (event) {
+            event = event || window.event ;
+            var staY = event.clientY;
+            // console.log('staY = ' + event.clientY) ;
+            var eleY = scrollDiv.offsetTop ;
+            // console.log('eleY = ' + scrollDiv.offsetTop) ;
+            document.onmousemove = function (event) {
+                event = event || window.event ;
+                var endY = event.clientY;
+                // console.log('endY = ' + event.clientY) ;
+                var disY = endY - staY + eleY ;
+                if ( disY < 0 ) {
+                    disY = 0 ;
+                } else if ( disY + scrollDiv.offsetHeight > document.documentElement.clientHeight ) {
+                    disY = document.documentElement.clientHeight - scrollDiv.offsetHeight;
+                }
+                scrollDiv.style.top = disY + 'px';
+                // console.log('disY = ' + disY) ;
+                var contentDiv = -disY / scale;
+                divbox.style.top = contentDiv + 'px' ;
+            }
+            document.onmouseup = function (event) {
+                event = event || window.event ;
+                document.onmousemove = document.onmouseup = null ;
+            }
+            event.preventDefault();
+            return false ;
+        }
+    </script>
+</body>
+</html>

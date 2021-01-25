@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span class="tm"></span>
+    <br>
+    <input type="button" disabled = 'disabled' value="请先阅读协议(5s)">
+    <script>
+        var tm = document.querySelector('.tm') ;
+        var btn = document.querySelector('input') ;
+        var timer = setInterval(function () {
+            var date = new Date() ;
+            var year = date.getFullYear() ;
+            var month = date.getMonth()  +  1;
+            var day = date.getDay() ;
+
+            var hour = date.getHours() ;
+            var minutes = date.getMinutes() ;
+            var sec = date.getSeconds() ;
+
+
+            var time = "现在时间是: " + year + '年' + month + '月' + day + '日  ' + hour + ':' + minutes + ':' + sec ;
+            tm.innerHTML = time ;
+        },1000) ;
+        var num = 5 ;
+        var timer1 = setInterval(function () {
+            num -- ;
+            btn.value = '请先阅读协议('+ num +'s)' ;
+            if ( num == 0 ) {
+                clearInterval(timer1) ;
+                btn.value = '点击确认' ;
+                btn.disabled = false ;
+            }
+        } ,1000)
+    </script>
+</body>
+</html>

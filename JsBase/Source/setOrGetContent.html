@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: #0055ff;
+        }
+    </style>
+</head>
+<body>
+    <p>你好呀</p>
+    <script>
+        var getP = document.querySelectorAll('p') ;
+        var str = '你好，我叫王尚位' ;
+        setOrGetContent(getP[0],str);
+        function setOrGetContent(obj ,content) {
+            if ( arguments.length == 2 ) {
+                if ( obj.textContent ) {
+                    obj.textContent = content;
+                } else {
+                    obj.innerText = content;
+                }
+            } else {
+                if ( obj.textContent ) {
+                    return obj.textContent ;
+                } else {
+                    return obj.innerText;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

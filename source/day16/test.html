@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            height: 50px;
+            width: 100%;
+            background-color: red;
+            border: 1px solid #333333;
+            margin-top: 50px;
+        }
+        #box .wrapper{
+            width: 50px;
+            height: 50px;
+            position: relative;
+            margin: 0 auto;
+
+        }
+        #box .wrapper .up{
+            height: 49px;
+            /*width: 50px;*/
+            border: 1px solid transparent;
+            border-bottom: none;
+            background-color: #00FF00;
+            z-index: 1;
+            position: relative;
+
+        }
+        #box .wrapper .down{
+            display: none;
+            height: 500px;
+            width: 100px;
+            background-color: white;
+            top: 50px;
+            position: absolute;
+            border: 1px solid #990033;
+        }
+        #box .wrapper:hover .up{
+            padding-bottom: 1px;
+            background-color: white;
+            border-color: #990033;
+        }
+        #box .wrapper:hover .down{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="wrapper">
+            <div class="up">
+            </div>
+            <div class="down">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

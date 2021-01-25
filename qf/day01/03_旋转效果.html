@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            height: 600px;
+            width: 400px;
+            margin: 50px auto;
+            position: relative;
+        }
+        #wrap .imgBig {
+            height: 600px;
+            width: 400px;
+            /*position: absolute;*/
+        }
+        #wrap .imgBig img{
+            height: 600px;
+            width: 400px;
+        }
+        #wrap .imgSmall {
+            height: 500px;
+            width: 300px;
+            position: absolute;
+            margin: auto;
+            transform: rotate(180deg) translateY(100px);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform-origin: left top;
+            transition: 2s;
+        }
+        #wrap .imgSmall img{
+            height: 500px;
+            width: 300px;
+        }
+        #wrap:hover .imgSmall{
+            /*transfrom: translateY(-100px) ;*/
+            transform: rotate(0);
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="imgBig">
+            <img src="./img/dl.jpg" alt="">
+        </div>
+        <div class="imgSmall">
+            <img src="./img/rb.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

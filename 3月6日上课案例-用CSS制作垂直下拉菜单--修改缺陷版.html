@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vertical-submenu</title>
+	<style>
+	*{padding:0px;margin:0px;}
+	html{background: #ccc;}
+	div{margin:30px 50px;float:left;}
+	ul{list-style: none;}
+	ul li a{display:block;
+			text-decoration: none;
+			background: #a00;
+			width:180px;
+			color:white;
+			/*font-weight: bold;*/
+			height:40px;
+			line-height: 40px;
+			border-bottom: 1px solid white;
+			text-align: center;
+	}
+	ul li a:hover{background: #f90;}
+	ul li{position: relative;}
+	ul li ul{position:absolute;left:181px;top:0px;display:none;z-index:1;}
+	ul li:hover ul{display:block;}
+	#hpu{width:100px;height:100px;background: cyan;float:right;display: none;}
+
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><a href="#">学校概况</a></li>
+			<li><a href="#">管理机构</a></li>
+			<li><a href="#">院系设置</a>
+					<ul>
+						<li><a>电气学院</a></li>
+						<li><a>计算机科学与技术学院</a></li>
+						<li><a>安全学院</a></li>
+						<li><a>材料学院</a></li>
+						<li><a>化工学院</a></li>
+					</ul>
+			</li>
+			<li><a href="#">招生就业</a></li>
+			<li><a href="#">科学研究</a>
+					<!-- <ul>
+						<li><a>基础研究</a></li>
+						<li><a>应用研究</a></li>
+						<li><a>国际合作</a></li>
+						<li><a>校内基金</a></li>
+						<li><a>杰出贡献</a></li>
+					</ul> -->
+			</li>
+		</ul>
+	</div>
+	<div id="hpu"></div>
+</body>
+</html>

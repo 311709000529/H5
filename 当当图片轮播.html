@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0px;
+            list-style: none;
+            border: none;
+        }
+
+        #warp {
+            margin: 30px auto;
+            width: 796px;
+            height: 326px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        img {
+            display: block;
+        }
+
+        #list {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #list li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            font: 12px/20px Arial;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #646464;
+            margin-right: 6px;
+            border-radius: 10px;
+        }
+
+        #list .on {
+            background-color: #ff2832;
+        }
+
+        .btn {
+            position: absolute;
+            width: 33px;
+            height: 70px;
+            overflow: hidden;
+            background-image: url(http://img60.ddimg.cn/upload_img/00111/home/home_sprite_1507.png);
+            background-repeat: no-repeat;
+            background-color: #000;
+            top: 122px;
+            font-size: 0;
+            line-height: 99px;
+            cursor: pointer;
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+            z-index: 10;
+        }
+        .btn_l {
+            background-position: 0 -70px;
+            left: 0;
+        }
+        .btn_r {
+            background-position: -33px -70px;
+            right: 0;
+        }
+        #warp:hover>.btn_l{
+            transform: translateX(45px);
+            transition-duration: 400ms;
+        }
+        #warp:hover>.btn_r {
+            transform: translateX(-45px);
+            transition-duration: 400ms;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="warp">
+        <div class="btn btn_l" style="left: -46px; z-index: 10;" id="btn_l">left</div>
+        <div class="btn btn_r" style="right: -46px; z-index: 10;" id="btn_r">right</div>
+        <ul id="pic">
+            <li>
+                <img src="http://img62.ddimg.cn/2020/3/16/2020031623252655723.jpg" alt="">
+                <img src="http://img61.ddimg.cn/2020/3/16/2020031623114614635.jpg" alt="">
+                <img src="http://img63.ddimg.cn/2020/3/16/2020031622152923125.jpg" alt="">
+                <img src="http://img63.ddimg.cn/2020/3/11/2020031117160354269.jpg" alt="">
+                <img src="http://img62.ddimg.cn/2020/3/16/2020031622301178655.jpg" alt="">
+            </li>
+        </ul>
+        <ol id="list">
+            <li class="on">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+    </div>
+</body>
+<script>
+    var pic = document.getElementById("pic");
+    var list = document.getElementById("list").getElementsByTagName("li");
+    var index = 0;
+    var time = null;
+
+    function change(curentIndex) {
+        pic.style.marginTop = (-326) * curentIndex + "px";
+        list[curentIndex].className = "on";
+        pic.onmouseover = function () {
+            pic.style.cursor = "pointer";
+            clearInterval(time);
+        }
+        pic.onmouseout = auto;
+    }
+    function auto() {
+        time = setInterval(function () {
+            list[index].className = "";
+            index = (index+1)%5
+            change(index);
+        }, 4000)
+    }
+
+    auto();
+
+
+    for (var i = 0; i < 5; i++) {
+        list[i].onmouseover = function () {
+            for (var x = 0; x < 5; x++) {
+                if (list[x] == this) {
+                    list[index].className = "";
+                    change(x)
+                    index = x;
+                    clearInterval(time);
+                    auto();
+                    break;
+                }
+            }
+        }
+    }
+
+    //点击左右标签
+    var button = document.getElementsByClassName("btn")
+    console.log(button)
+    button[0].onclick = function() {
+        list[index].className = "";
+        index = (index+4)%5;
+        change(index)
+
+        clearInterval(time);
+        auto();
+    }
+    button[1].onclick = function () {
+        list[index].className = "";
+        index = (index + 1) % 5;
+        change(index)
+
+        clearInterval(time);
+        auto();
+    }
+</script>
+</html>
