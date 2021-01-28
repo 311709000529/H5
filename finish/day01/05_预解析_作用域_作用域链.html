@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button>测试1</button>
+<button>测试2</button>
+<button>测试3</button>
+<script>
+    function test(a, b) {
+        console.log(a); //function
+
+        console.log(b); //undefined
+
+        var b = 234;
+        console.log(b); //234
+
+        a = 123;
+        console.log(1); //1
+
+        function a() {}//执行的时候这个函数声明会被提前，也就是说在开头就已经声明
+        var a;
+        b = 234;
+        var b =  function() {};
+        console.log(a); //123
+
+        console.log(b); //function
+    }
+    test(1,2)
+    console.log('---------------------------')
+    var n = 123
+    function fun1() {
+        console.log(n)
+    }
+    function fun2() {
+        var n = 456
+        fun1()
+    }
+    fun2()
+    console.log('---------------------------')
+    function outFun2() {
+        variable = "未定义直接赋值的变量";
+        var inVariable2 = "内层变量2";
+    }
+    outFun2(); //要先执行这个函数，否则根本不知道里面是啥
+    console.log(variable); //未定义直接赋值的变量
+    // console.log(inVariable2); //inVariable2 is not defined
+    console.log('---------------------------')
+    var btns = document.querySelectorAll('button')
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].onclick = function () {
+            console.log('第' + (i + 1) + '个')
+        }
+    }
+    console.log('---------------------------')
+    f1();
+    console.log(c);
+    console.log(b);
+    // console.log(a);
+    function f1(){
+        var a = b = c = 9;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+    console.log('---------------------------')
+
+    function fun(){
+        console.log(a);
+        if(true){
+            function a(){}
+        }
+        console.log(a)
+    }
+    fun()
+    console.log('---------------------------')
+    if ( 'a' in window ) {
+        var a = 'hello js';
+    }
+    console.log( a );
+    console.log('---------------------------')
+
+
+    if ( true ) {
+        function foo() {
+            console.log( true );
+        }
+    } else {
+        function foo() {
+            console.log( false );
+        }
+    }
+    foo();
+    console.log('---------------------------')
+
+    var length = 10;
+    function fn(str) {
+        console.log(str)
+        console.log( this.length )
+        console.log(this)
+    }
+    fn('global')
+    var obj = {
+        length: 5,
+        mathod: function( fn ){
+            fn('obj');
+            arguments[ 0 ]('arguments');
+            console.log(this)
+        }
+    }
+    obj.mathod( fn, 1 );
+</script>
+</body>
+</html>

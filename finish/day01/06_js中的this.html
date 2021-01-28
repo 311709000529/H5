@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var a = 1
+    function foo () {
+        var a = 2
+        console.log(this)
+        console.log(this.a)
+    }
+    foo()
+    console.log('----------------------------------------')
+    function test(arg) {
+        console.log(arg);
+        var arg = 10;
+        function arg() {
+            console.log('函数')
+        }
+        console.log(arg)
+    }
+    test('LinDaiDai');
+    console.log('----------------------------------------')
+
+    function foo () {
+        console.log(this)
+        console.log(this.a)
+    };
+    var obj = { a: 1, foo };
+    var a = 2;
+    var foo2 = obj.foo;
+
+    obj.foo();
+    foo2();
+    console.log('----------------------------------------')
+
+    function app () {
+        console.log(this)
+        console.log(this.a)
+    };
+    var obj = { a: 1, a1: ()=>{
+            console.log(this)
+            console.log(this.a)
+        }
+    };
+    var a = 2;
+    var app2 = obj.a1;
+
+    obj.a1();
+    app2();
+    console.log('----------------------------------------')
+
+
+    var obj1 = {
+        a: 1
+    }
+    var obj2 = {
+        a: 2,
+        foo1: function () {
+            console.log(this.a)
+        },
+        foo2: function () {
+            setTimeout(function () {
+                console.log(this)
+                console.log(this.a)
+            }, 0)
+        }
+    }
+    var a = 3
+
+    obj2.foo1()
+    obj2.foo2()
+
+
+</script>
+</body>
+</html>
