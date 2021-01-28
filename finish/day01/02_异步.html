@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let start = Date.now()
+    console.log(start)
+    setTimeout(function () {
+        console.log('-------')
+        console.log(Date.now())
+        console.log(Date.now()-end2)
+        console.log(Date.now() - start)
+    },1000)
+    let end = Date.now()
+     console.log(end-start)
+    for (let i = 0 ; i < 10000000000 ; i ++ ) {
+
+    }
+    let end2 = Date.now()
+    console.log(end2)
+</script>
+</body>
+</html>

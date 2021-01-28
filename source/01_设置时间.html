@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    function mySetInterVal(fn, a, b) {
+        this.a = a;
+        this.b = b;
+        this.time = 0;
+        this.handle = -1;
+
+        this.start = () => {
+            this.handle = setTimeout(() => {
+                fn();
+                this.time++;
+                this.start();
+                console.log('===============')
+                console.log( this.a + this.time * this.b);
+            }, this.a + this.time * this.b);
+        }
+
+        this.stop = () => {
+            clearTimeout(this.handle);
+            this.time = 0;
+        }
+    }
+
+    let a = new mySetInterVal(() => {console.log('123')},1000, 2000 );
+    a.start();
+    a.stop();
+</script>
+</html>

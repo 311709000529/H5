@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            background-color: red;
+            /*width: 500px;*/
+            /*height: 500px;*/
+            /*overflow: hidden;  */
+        }
+        .clearfix::before,
+        .clearfix::after
+        {
+            content:'';
+            clear: both;
+            display: table;
+        }
+        .inner {
+            background-color: blue;
+            margin-top:50px ;
+            width: 300px;
+            height: 300px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer clearfix">
+        <div class="inner">
+
+        </div>
+    </div>
+
+
+</body>
+</html>
