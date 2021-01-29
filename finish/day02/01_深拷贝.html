@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // ...运算符
+    let arr = [1,2,3,4,5,6,7,8,9]
+    let arr1 = [...arr]
+    console.log(arr === arr1)
+    console.log('----------------------------------------------')
+    let arr2 = arr.slice()
+    console.log(arr2 === arr)
+    console.log('----------------------------------------------')
+    let arr3 = arr.concat(arr)
+    console.log(arr3 === arr)
+    console.log('----------------------------------------------')
+
+
+
+    let s1 = Symbol('s1');
+
+    let obj = {
+        a: '100',
+        b: undefined,
+        c: null,
+        d: Symbol(2),
+        e: /^\d+$/,
+        f: new Date,
+        g: true,
+        arr: [10,20,30],
+        school:{
+            name:'cherry',
+            [s1]: 's1'
+        },
+        fn: function fn() {
+            console.log('fn');
+        }
+    }
+
+    obj.h = obj;
+    console.log('obj = ',obj)
+    function deepClone(obj, hash = new WeakMap()) {
+        //先把特殊情况全部过滤掉 null undefined date reg
+        if (obj == null) return obj;  //null 和 undefined 都不用处理
+        if (obj instanceof Date) return new Date(obj);
+        if (obj instanceof RegExp) return new RegExp(obj);
+        if (typeof obj !== 'object') return obj;  // 普通常量直接返回
+
+        //  防止对象中的循环引用爆栈，把拷贝过的对象直接返还即可
+        if (hash.has(obj)) return hash.get(obj);
+        // console.log('----1----')
+        // 不直接创建空对象的目的：克隆的结果和之前保持相同的所属类
+        // 同时也兼容了数组的情况
+        let newObj = new obj.constructor;
+        console.log('newObj = ',newObj)
+        hash.set(obj, newObj)  // 制作一个映射表
+        console.log('hash = ',hash)
+        //判断是否有 key 为 symbol 的属性
+        let symKeys = Object.getOwnPropertySymbols(obj);
+
+        if (symKeys.length) {
+            symKeys.forEach(symKey => {
+                newObj[symKey] = deepClone(obj[symKey], hash);
+            });
+        }
+
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {  // 不拷贝原型链上的属性
+                newObj[key] = deepClone(obj[key], hash);  // 递归赋值
+            }
+        }
+        return newObj;
+    }
+
+
+
+
+    function deepClone(obj ,hash = new WeakMap()) {
+        if ( obj == null ) return obj
+        if ( obj instanceof Date ) return new Date(obj)
+        if ( obj instanceof RegExp ) return new RegExp(obj)
+        if ( typeof obj !== 'object' ) return obj
+
+        if ( hash.has(obj) ) return hash.get(obj)
+
+        let newObj = new obj.constructor
+        hash.set(obj ,newObj)
+
+        let symItem = Object.getOwnPropertySymbols(obj)
+        if ( symItem.length ) {
+            symItem.forEach( sym => {
+                newObj[sym] = deepClone(obj[sym] ,hash )
+            })
+        }
+
+        for (let i in obj) {
+            if( obj.hasOwnProperty(i)) {
+                newObj[i] = deepClone(obj[i] ,hash)
+            }
+        }
+        return newObj
+    }
+    console.log(deepClone(obj))
+    console.log(obj == deepClone(obj))
+</script>
+</body>
+</html>
