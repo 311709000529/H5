@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            overflow: hidden;
+            min-width: 600px;
+        }
+        #wrap .left {
+            width: 200px;
+            height: 500px;
+            background-color: red;
+            float: left;
+            margin-left: -100%;
+        }
+        #wrap .right {
+            width: 200px;
+            height: 500px;
+            background-color: black;
+            float: left;
+            margin-left: -200px;
+            color: whitesmoke;
+        }
+        /*#wrap .main-contain{*/
+        /*}*/
+        #wrap .main {
+            width: 100%;
+            height: 500px;
+            background-color: #7a43b6;
+            float: left;
+        }
+        #wrap .main-contain{
+            margin: 0 200px;
+            height: 500px;
+            width: 100%;
+        }
+        /*#wrap .main-contain .inner {*/
+        /*    margin: 0 50px;*/
+        /*    overflow: hidden;*/
+        /*    width: 200px;*/
+        /*    height: 200px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="main">
+            <div class="main-contain">
+                middle
+<!--                <div class="inner">-->
+<!--                    middlemiddlemiddlemiddlemiddlemiddlemiddlemiddle-->
+<!--                    middlemiddlemiddlemiddlemiddlemiddlemiddlemiddle-->
+<!--                    middlemiddlemiddlemiddlemiddlemiddlemiddlemiddle-->
+<!--                    middlemiddlemiddlemiddlemiddlemiddlemiddlemiddle-->
+<!--                    middlemiddlemiddlemiddlemiddlemiddlemiddlemiddle-->
+<!--                    middlemiddlemiddlemiddlemiddle-->
+<!--                </div>-->
+            </div>
+        </div>
+        <div class="left">
+            左侧的
+        </div>
+        <div class="right">
+            右侧的
+        </div>
+    </div>
+</body>
+</html>
