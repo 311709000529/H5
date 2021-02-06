@@ -37,13 +37,15 @@
 
         .fourth-face, .sixth-face {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
         }
 
         .fourth-face .column, .sixth-face .column {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: space-around;
+            justify-content: space-around;
         }
 
         .fifth-face {
@@ -92,10 +94,11 @@
             height: 104px;
             object-fit: contain;
 
-            box-shadow: inset 0 5px white,
-            inset 0 -5px #bbb,
-            inset 5px 0 #d7d7d7,
-            inset -5px 0 #d7d7d7;
+            box-shadow:
+                    inset 0 5px white,
+                    inset 0 -5px #bbb,
+                    inset 5px 0 #d7d7d7,
+                    inset -5px 0 #d7d7d7;
 
             border-radius: 10%;
         }

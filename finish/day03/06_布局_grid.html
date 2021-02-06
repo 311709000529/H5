@@ -1,13 +1,44 @@
-<!doctype>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Grid</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <style>
-
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: 200px auto 200px;
+            grid-template-rows: 500px;
+            min-width: 600px;
+        }
+        #container .left {
+            background-color: red;
+        }
+        #container .middle {
+            background-color: black;
+        }
+        #container .right {
+            background-color: #7a43b6;
+        }
     </style>
 </head>
 <body>
+    <div id="container">
+        <div class="left">
 
+        </div>
+        <div class="middle">
+
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
 </body>
 </html>
