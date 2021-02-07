@@ -26,7 +26,7 @@
 </div>
 <script>
     var demo = document.querySelector("#demo")
-
+    document.documentElement
 
 /*
     demo.getAttribute()
@@ -38,9 +38,14 @@
     onmousemove/onmouseover/onmouseout/onmouseleave/onmouseenter/onclick/onmousedown/onmouseup/ondbclick
     onkeydown/onkeyup/onblur/onfocus
 
+    document.body //body
+    document.documentElement //html
+
 
     childNodes // 子节点 包括文本节点和元素节点
     ,children //包括元素节点 低版本浏览器还包括注释节点
+
+
 
     nodeName ,nodeType ,nodeValue
 
@@ -53,6 +58,13 @@
 
     createElement appendChild
 
+
+    * 插入节点: insertBefore(新节点,参照节点);
+	* 替换节点: replaceChild(新节点,被替换的节点);
+	* 删除节点: removeChild(被删除的节点);
+	* 追加节点：appendChild(被追加的节点)；
+
+	event.stopPropagation(); //阻止冒泡
 */
 </script>
 </body>

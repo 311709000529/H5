@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+
+
+
+    // window.location.href // 网址
+    console.log(window.location)
+
+
+    console.log(screen.width);
+    console.log(screen.height);
+    console.log(screen.availWidth);
+    console.log(screen.availHeight);
+
+    history.back()
+    history.forward()
+
+
+    // 第五节:  event 对象
+    // 1.  event概念，作用
+    // 系统给我们封装的，任何事件都会有这个event对象，就是回调函数的第一个形参；
+	// 2.  event兼容性处理
+    // 3.  event.target || event.srcElement作用
+    // 4.  clientX & clientY     拿的是鼠标相对视口的 水平距离和垂直距离   相对的是视口的左上角（以视口左上角为原点）
+    //         pageX pageY           拿的是鼠标相对页面的 水平距离和垂直距离   相对的是页面的左上角（以页面左上角为原点）
+	//     offsetX   offsetY     拿的是鼠标相对自身元素的 水平距离和垂直距离   相对的是自身元素左上角（以自身元素左上角为原点）
+
+
+    // 二 元素的大小和位置
+    // Offset系列    只读
+    // offsetWidth      拿的是盒子   内容 + padding + border的宽；
+	// 		offsetHeight   	 拿的是盒子   内容 + padding + border的高；
+    //
+    //
+	// 		offsetLeft       拿的是元素的偏倚量：可以认为就是拿的定位left值
+    // offsetTop        拿的是元素的偏倚量：可以认为就是拿的定位top值
+    //
+    // 案例：盒子左右摇摆
+    //
+    //
+    //
+    // Client系列    只读
+    // clientWidth      拿的是盒子   内容 + padding的宽；
+	// 		clientHeight     拿的是盒子   内容 + padding的高；
+    //
+    //
+	// 		clientLeft       拿的是盒子左边框大小；
+	// 		clientTop        拿的是盒子上边框大小；
+	//
+	// 		视口宽高求法
+    // document.documentElement.clientWidth
+    // document.documentElement.clientHeight
+    //
+    //
+    // Scroll系列
+    // scrollWidth   只读
+    // //当内容比盒子小的时候，拿的是盒子的clientWidth
+    // //					//当内容比盒子大的时候，拿的是内容的offsetWidth + 盒子的一侧内边距；
+    // scrollHeight  只读
+    // //当内容比盒子小的时候，拿的是盒子的clientHeight
+    // //					//当内容比盒子大的时候，拿的是内容的offsetHeight + 盒子的一侧内边距；
+    //
+    //
+    // scrollTop     可写
+    // //拿的是盒子内容向上滚动的距离
+    // scrollLeft    可写
+    // //拿的是盒子内容向左滚动的距离
+    //
+    //
+    //
+    // 元素的大小：宽和高的获取；
+	// 	以后我们拿元素的宽和高 先看元素有没有边框   如果没有边框    那么clientWidth和offsetWidth是一样的
+    // 如果有边框，看你需要不，需要的话就用offsetWidth 不需要就用clientWidth;
+    // scrollWidth几乎不用；
+
+</script>
+</body>
+</html>
