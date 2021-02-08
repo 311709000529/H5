@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper {
+            height: 300px;
+            width: 500px;
+            overflow: hidden;
+            margin: 50px auto;
+            position: relative;
+        }
+        #wrapper .outer {
+            height: 300px;
+            width: 4500px;
+            position: absolute;
+            left: -500px;
+
+        }
+        #wrapper .outer img{
+            height: 300px;
+            width: 500px;
+            display: block;
+            float: left;
+        }
+        #wrapper .left {
+            background-color: #b0b0b0;
+            opacity: 0;
+            height: 60px;
+            width: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            cursor: pointer;
+            transition: opacity 1s linear;
+
+        }
+        #wrapper .right {
+            background-color: #b0b0b0;
+            opacity: 0;
+            height: 60px;
+            width: 40px;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            position: absolute;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            cursor: pointer;
+            transition: opacity 1s linear;
+
+        }
+        #wrapper .dot_list {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 1s linear;
+        }
+        #wrapper .dot_list>li {
+            display: block;
+            height: 15px;
+            width: 15px;
+            float: left;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            background-color: gray;
+            border-radius: 50%;
+            border: 1px solid whitesmoke;
+            cursor: pointer;
+        }
+        #wrapper:hover .left,
+        #wrapper:hover .right,
+        #wrapper:hover .dot_list {
+            opacity: 0.5;
+        }
+        #wrapper .dot_list .active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="outer">
+            <img src="./img/7.jpg" alt="">
+            <img src="./img/1.png" alt="">
+            <img src="./img/2.jpg" alt="">
+            <img src="./img/3.jpg" alt="">
+            <img src="./img/4.png" alt="">
+            <img src="./img/5.jpg" alt="">
+            <img src="./img/6.jpg" alt="">
+            <img src="./img/7.jpg" alt="">
+            <img src="./img/1.png" alt="">
+        </div>
+        <div class="left iconfont">
+            &#xe603;
+        </div>
+        <div class="right iconfont">
+            &#xe64d;
+        </div>
+        <ul class="dot_list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        const baseWidth = 500
+        const PAGES = 7
+        const STEP = 10
+        const TIME = 500
+
+        let left = document.querySelector("#wrapper .left")
+        let right = document.querySelector("#wrapper .right")
+        let dotList = document.querySelector("#wrapper .dot_list")
+        let liList = document.querySelectorAll("#wrapper .dot_list>li")
+        let outer = document.querySelector("#wrapper .outer")
+        let wrapper = document.querySelector("#wrapper")
+
+        function Move(move,flag) {
+            let per ,item ,finPos
+            let timeItem = TIME / STEP
+            per = outer.offsetLeft
+            if ( flag ) {
+                finPos = move
+                item =  (finPos - per) / STEP
+            } else {
+                item = move / 10
+                finPos = per + move
+            }
+            let timer = setInterval(function () {
+                outer.style.left = outer.offsetLeft + item + 'px'
+                if ( finPos === outer.offsetLeft ) {
+                    clearInterval(timer)
+                    if ( finPos === 0 ) {
+                        outer.style.left = -PAGES * baseWidth + 'px'
+                    } else if ( finPos === -(PAGES + 1)*baseWidth ) {
+                        outer.style.left = -baseWidth + 'px'
+                    }
+                    update(per,outer.offsetLeft)
+                }
+            } ,timeItem)
+            return false
+        }
+        function update(per,move) {
+            console.log(per ,move)
+            console.log(-per/baseWidth - 1,-move/baseWidth -1)
+            liList[-per/baseWidth - 1].className = ''
+            liList[-move/baseWidth -1].className = 'active'
+        }
+        left.onclick = function () {
+            Move(baseWidth,false)
+        }
+        right.onclick = function () {
+            Move(-baseWidth,false)
+        }
+        for (let i = 0 ; i < liList.length ; i ++ ) {
+            liList[i].onclick = function () {
+                Move(-(i+1)*baseWidth,true)
+            }
+        }
+        let timer = setInterval(function () {
+            Move(-baseWidth)
+        },5000)
+        outer.onmouseenter = function () {
+            clearInterval(timer)
+            outer.onmouseleave = function () {
+                setInterval(function () {
+                    Move(-baseWidth)
+                },5000)
+            }
+        }
+    </script>
+</body>
+</html>

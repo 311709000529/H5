@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        html,body {
+            height: 100%;
+            overflow: hidden;
+        }
+        #wrapper {
+            height: 100%;
+            position: relative;
+        }
+        #wrapper .content {
+            position: absolute;
+        }
+        #wrapper .scrollBar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 25px;
+            height: 100%;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+        #wrapper .scrollBar .scrollIn {
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background-color: red;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="content">
+
+        </div>
+        <div class="scrollBar">
+            <div class="scrollIn">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let content = document.querySelector('#wrapper .content')
+        for (let i = 0 ; i < 300 ; i ++ ) {
+            content.innerHTML += i + '<br>'
+        }
+        let scrollIn = document.querySelector("#wrapper .scrollBar .scrollIn")
+
+        let scale = document.documentElement.offsetHeight / content.offsetHeight
+
+        scrollIn.style.height = scale * document.documentElement.offsetHeight + 'px'
+
+        scrollIn.onmousedown = function (event) {
+            let staT = event.clientY
+            let boxT = scrollIn.offsetTop
+            document.onmousemove = function (event) {
+                let endT = event.clientY
+                let finT = endT - staT + boxT
+
+                if ( finT < 0 ) {
+                    finT = 0
+                } else if ( finT + scrollIn.offsetHeight > document.documentElement.offsetHeight ) {
+                    finT = document.documentElement.offsetHeight - scrollIn.offsetHeight
+                }
+                let conT = - finT /scale
+
+                scrollIn.style.top = finT + 'px'
+                content.style.top = conT + 'px'
+            }
+            document.onmouseup = function () {
+                document.onmousemove = document.onmouseup = null
+            }
+            return false
+        }
+        document.addEventListener('mousewheel',scrollMove)
+        function scrollMove(event) {
+            let flag = false
+            let step
+            if ( event.wheelDelta > 0 ) {
+                step = -20
+            } else {
+                step = 20
+            }
+            let finT = scrollIn.offsetTop + step
+            if ( finT < 0 ) {
+                finT = 0
+            } else if ( finT + scrollIn.offsetHeight > document.documentElement.offsetHeight ) {
+                finT = document.documentElement.offsetHeight - scrollIn.offsetHeight
+            }
+            scrollIn.style.top = finT + 'px'
+            content.style.top = -finT/scale + 'px'
+        }
+    </script>
+</body>
+</html>
